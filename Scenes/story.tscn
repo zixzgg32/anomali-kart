@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://b3d35btncsjck"]
+
+[ext_resource type="Script" uid="uid://cgm5c378oikgx" path="res://Scenes/script/story.gd" id="1_g6ewe"]
+[ext_resource type="Texture2D" uid="uid://capj42xlw75i7" path="res://Asset/Story/raja anomali.png" id="2_oj37j"]
+[ext_resource type="Texture2D" uid="uid://dodyaqax0hp1r" path="res://Asset/Story/pemanggilan anomali.png" id="3_3rk6k"]
+[ext_resource type="Texture2D" uid="uid://xn6fjw4v4utq" path="res://Asset/Story/tanpa bintang malam.png" id="4_ufoms"]
+[ext_resource type="Texture2D" uid="uid://ccwthrk2ss0jo" path="res://Asset/Story/gemerlap bintang malam.png" id="5_wdwfu"]
+[ext_resource type="Texture2D" uid="uid://cayuhmyk1u3ua" path="res://Asset/Story/bintang jatuh malam.png" id="6_msqou"]
+[ext_resource type="Texture2D" uid="uid://bj8bvoywwswgm" path="res://Asset/Story/ledakan malam.png" id="7_ccppg"]
+[ext_resource type="Texture2D" uid="uid://d0nd2upqaqpna" path="res://Asset/Story/siluet tung tung tung sahur.png" id="8_185qy"]
+[ext_resource type="Texture2D" uid="uid://vrcwspi16h63" path="res://Asset/Story/3 bintag jatuh.png" id="9_yx755"]
+[ext_resource type="Texture2D" uid="uid://d3dxq84cptscw" path="res://Asset/Story/siluet balerina.png" id="10_ecg4a"]
+[ext_resource type="Texture2D" uid="uid://c5bj23gmur64n" path="res://Asset/Story/siluet crocodilo.png" id="11_gjl3m"]
+[ext_resource type="Texture2D" uid="uid://b8vcyocpis3sg" path="res://Asset/Story/siluet tralalero tralala.png" id="12_kd4ob"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g6ewe")
+
+[node name="1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_oj37j")
+
+[node name="2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_3rk6k")
+
+[node name="3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_ufoms")
+
+[node name="4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_wdwfu")
+
+[node name="5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_msqou")
+
+[node name="6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_ccppg")
+
+[node name="7" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_185qy")
+
+[node name="8" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_yx755")
+
+[node name="9" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_ecg4a")
+
+[node name="10" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_gjl3m")
+
+[node name="11" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_kd4ob")

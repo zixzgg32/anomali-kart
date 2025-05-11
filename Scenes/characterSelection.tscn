@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl8g0v866geuu"]
+
+[ext_resource type="Script" uid="uid://bbqoyq62o3gh4" path="res://Scenes/script/character_selection.gd" id="1_883pe"]
+[ext_resource type="Texture2D" uid="uid://f20x5n3r35j2" path="res://Asset/Anomali/salt_honey_pixel_art_64x64.png" id="2_h4tog"]
+[ext_resource type="Texture2D" uid="uid://cxcdv60db0cad" path="res://Asset/Anomali/wooden_character_pixel_art_64x64.png" id="3_g4nxt"]
+[ext_resource type="Texture2D" uid="uid://cbjbte5d345b4" path="res://Asset/Anomali/shark_pixel_art_64x64.png" id="4_l2b8j"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_883pe")
+character_sprites = Array[NodePath]([NodePath(""), NodePath(""), NodePath("")])
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -32.0
+offset_right = 100.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Character1" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_h4tog")
+
+[node name="Character2" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_g4nxt")
+
+[node name="Character3" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_l2b8j")
