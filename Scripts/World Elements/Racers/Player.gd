@@ -1,6 +1,10 @@
 #Player.gd
 extends Racer
 
+func set_character_sprite(texture: Texture2D):
+	if _spriteGFX and texture:
+		_spriteGFX.texture = texture
+
 func Setup(mapSize : int):
 	SetMapSize(mapSize)
 

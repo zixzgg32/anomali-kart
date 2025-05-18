@@ -839,15 +839,15 @@ _treeLine = NodePath("Tree Line")
 
 [node name="Background" type="Sprite2D" parent="Background Elements"]
 z_index = -1
-position = Vector2(240, 180)
-scale = Vector2(15, 11.25)
+position = Vector2(321.5, 180)
+scale = Vector2(20.0938, 11.25)
 texture = ExtResource("1_5044a")
 
 [node name="Sky Line" type="Sprite2D" parent="Background Elements"]
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 48)
-scale = Vector2(2, 2)
+scale = Vector2(2.67083, 2)
 texture = ExtResource("3_ht13n")
 centered = false
 region_enabled = true
@@ -857,7 +857,7 @@ region_rect = Rect2(0, 0, 240, 32)
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 48)
-scale = Vector2(2, 2)
+scale = Vector2(2.675, 2)
 texture = ExtResource("3_vt36i")
 centered = false
 region_enabled = true
@@ -868,8 +868,8 @@ z_index = -1
 texture_filter = 1
 texture_repeat = 1
 material = SubResource("ShaderMaterial_lhngl")
-position = Vector2(240, 180)
-scale = Vector2(0.46875, 0.351563)
+position = Vector2(321, 180)
+scale = Vector2(0.626953, 0.351563)
 texture = ExtResource("3_q5wi2")
 script = ExtResource("4_s71t4")
 _mapStartRotationAngle = Vector2(4.9, 6.25)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbhidvtv0v1jg"
+path="res://.godot/imported/car engine.wav-7b09c600b9754f91f21a652d708f7382.sample"
+
+[deps]
+
+source_file="res://Asset/sound/soundeffect/soundeffect/car engine.wav"
+dest_files=["res://.godot/imported/car engine.wav-7b09c600b9754f91f21a652d708f7382.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

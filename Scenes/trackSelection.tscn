@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://clnswsd714mem"]
+[gd_scene load_steps=6 format=3 uid="uid://clnswsd714mem"]
+
+[ext_resource type="Script" uid="uid://bpydggaj7j0s1" path="res://Scenes/script/track_selection.gd" id="1_n15fk"]
+[ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/Track/Racetrack1.png" id="2_15gxc"]
+[ext_resource type="Texture2D" uid="uid://cpxnku33hpek2" path="res://Asset/Track/Racetrack2.png" id="3_m0ugf"]
+[ext_resource type="Texture2D" uid="uid://fcmlp8446u52" path="res://Asset/Track/Racetrack3.png" id="4_6a105"]
+[ext_resource type="Texture2D" uid="uid://nc4ndbpoev6r" path="res://Asset/Track/Racetrack4.png" id="5_aogdj"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +13,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n15fk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Track1" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("2_15gxc")
+
+[node name="Track2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("3_m0ugf")
+
+[node name="Track3" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("4_6a105")
+
+[node name="Track4" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 1024.0
+offset_bottom = 1024.0
+scale = Vector2(0.205, 0.205)
+texture = ExtResource("5_aogdj")

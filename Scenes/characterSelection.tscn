@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl8g0v866geuu"]
+[gd_scene load_steps=6 format=3 uid="uid://bl8g0v866geuu"]
 
 [ext_resource type="Script" uid="uid://bbqoyq62o3gh4" path="res://Scenes/script/character_selection.gd" id="1_883pe"]
-[ext_resource type="Texture2D" uid="uid://f20x5n3r35j2" path="res://Asset/Anomali/salt_honey_pixel_art_64x64.png" id="2_h4tog"]
-[ext_resource type="Texture2D" uid="uid://cxcdv60db0cad" path="res://Asset/Anomali/wooden_character_pixel_art_64x64.png" id="3_g4nxt"]
-[ext_resource type="Texture2D" uid="uid://cbjbte5d345b4" path="res://Asset/Anomali/shark_pixel_art_64x64.png" id="4_l2b8j"]
+[ext_resource type="Texture2D" uid="uid://cugcssjgx7mt5" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png" id="2_e5257"]
+[ext_resource type="Texture2D" uid="uid://rbkobbdftd4e" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-cappucinoassasino.png" id="3_m2yrg"]
+[ext_resource type="Texture2D" uid="uid://dsotrky0i7eu1" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tralalerotralala.png" id="4_qs2qt"]
+[ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="5_230ae"]
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -14,35 +15,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_883pe")
-character_sprites = Array[NodePath]([NodePath(""), NodePath(""), NodePath("")])
+character_names = Array[String]([" Balerina Capucina", "capucino assasino", "tralalero tralala", "tung tung tung sahur"])
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -32.0
-offset_right = 100.0
-offset_bottom = 32.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
-[node name="Character1" type="TextureRect" parent="HBoxContainer"]
+[node name="Character1" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
-texture = ExtResource("2_h4tog")
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("2_e5257")
 
-[node name="Character2" type="TextureRect" parent="HBoxContainer"]
+[node name="Character2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
-texture = ExtResource("3_g4nxt")
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("3_m2yrg")
 
-[node name="Character3" type="TextureRect" parent="HBoxContainer"]
+[node name="Character3" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
-texture = ExtResource("4_l2b8j")
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("4_qs2qt")
+
+[node name="Character4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("5_230ae")

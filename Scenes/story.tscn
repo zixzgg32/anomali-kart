@@ -22,68 +22,85 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g6ewe")
 
-[node name="1" type="TextureRect" parent="."]
-layout_mode = 0
+[node name="scene1" type="Control" parent="."]
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_oj37j")
 
-[node name="2" type="TextureRect" parent="."]
+[node name="1" type="TextureRect" parent="scene1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("3_3rk6k")
-
-[node name="3" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("4_ufoms")
 
-[node name="4" type="TextureRect" parent="."]
+[node name="2" type="TextureRect" parent="scene1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("5_wdwfu")
 
-[node name="5" type="TextureRect" parent="."]
+[node name="3" type="TextureRect" parent="scene1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("6_msqou")
 
-[node name="6" type="TextureRect" parent="."]
+[node name="4" type="TextureRect" parent="scene1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("7_ccppg")
 
-[node name="7" type="TextureRect" parent="."]
+[node name="5" type="TextureRect" parent="scene1"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("8_185qy")
 
-[node name="8" type="TextureRect" parent="."]
-layout_mode = 0
+[node name="scene2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="6" type="TextureRect" parent="scene2"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("9_yx755")
 
-[node name="9" type="TextureRect" parent="."]
+[node name="7" type="TextureRect" parent="scene2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("10_ecg4a")
 
-[node name="10" type="TextureRect" parent="."]
+[node name="8" type="TextureRect" parent="scene2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("11_gjl3m")
 
-[node name="11" type="TextureRect" parent="."]
+[node name="9" type="TextureRect" parent="scene2"]
 layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("12_kd4ob")
+
+[node name="scene3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("12_kd4ob")
+
+[node name="10" type="TextureRect" parent="scene3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_oj37j")
+
+[node name="11" type="TextureRect" parent="scene3"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_3rk6k")

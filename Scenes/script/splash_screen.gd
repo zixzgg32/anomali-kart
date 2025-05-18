@@ -9,6 +9,10 @@ func _ready():
 	modulate = Color(1, 1, 1, 0)
 	fade_in()
 
+func _input(event):
+	if event.is_action_pressed("ui_select") or event.is_action_pressed("ui_accept") or (event is InputEventKey and event.keycode == KEY_SPACE):
+		get_tree().change_scene_to_packed(next_scene)
+
 func fade_in():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, fade_duration)

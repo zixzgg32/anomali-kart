@@ -20,7 +20,7 @@ func fade_in():
 func _on_single_player_pressed():
 	# Logika untuk tombol Single Player
 	print("Single Player button pressed")
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/characterSelection.tscn")
 
 func _on_multiplayer_pressed():
 	# Logika untuk tombol Multiplayer
