@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=32 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b2p41drytlkxt" path="res://Textures/Tracks/Donut Plains 1 - Tree Line.png" id="3_vt36i"]
 [ext_resource type="Texture2D" uid="uid://cnp7d7djiq0dd" path="res://Textures/Tracks/Grass_Tile.png" id="4_7c8ey"]
 [ext_resource type="Script" uid="uid://b1bl5wnf8vttq" path="res://Scripts/World Elements/Pseudo3D.gd" id="4_s71t4"]
+[ext_resource type="Texture2D" uid="uid://60luu68tdgkn" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Flag (2).png" id="6_gt3je"]
 [ext_resource type="Script" uid="uid://csptjyivkvl3h" path="res://Scripts/General/Collision.gd" id="6_q57ja"]
 [ext_resource type="Texture2D" uid="uid://b56nphrtp74n6" path="res://Textures/Tracks/Donut Plains 1 - Road Type Map.png" id="7_aoipd"]
 [ext_resource type="Script" uid="uid://dqs3p6n34ligd" path="res://Scripts/On Screen Elements/SpriteHandler.gd" id="7_wmybs"]
@@ -881,7 +882,6 @@ _mapMaxRotationSpeed = 1.5
 _mapAccelRotationSpeed = 2.0
 _mapDeaccelRotationSpeed = 3.0
 _rotationRadius = 36.0
-_mapVerticalPosition = 3.8
 
 [node name="Collision Handler" type="Node" parent="Map"]
 script = ExtResource("6_q57ja")
@@ -1178,3 +1178,8 @@ rotation = -2.61799
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("20_ee4r6")
 script = ExtResource("21_gt3je")
+
+[node name="LapFLag" type="Sprite2D" parent="."]
+position = Vector2(40, 45)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_gt3je")

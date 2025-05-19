@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc5fmpgrbxbp0"]
+
+[ext_resource type="Script" uid="uid://ckemp2cucotkd" path="res://Scripts/World Elements/Racers/Checkpoint.gd" id="1_ccb4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pul5b"]
+
+[node name="Bot" type="Node2D" groups=["bot"]]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_ccb4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pul5b")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]

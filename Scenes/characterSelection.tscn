@@ -1,10 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl8g0v866geuu"]
+[gd_scene load_steps=11 format=3 uid="uid://bl8g0v866geuu"]
 
 [ext_resource type="Script" uid="uid://bbqoyq62o3gh4" path="res://Scenes/script/character_selection.gd" id="1_883pe"]
 [ext_resource type="Texture2D" uid="uid://cugcssjgx7mt5" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png" id="2_e5257"]
+[ext_resource type="AudioStream" uid="uid://bbmehtt8domrf" path="res://Asset/sound/soundeffect/soundeffect/hit2.mp3" id="2_qs2qt"]
+[ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="3_230ae"]
 [ext_resource type="Texture2D" uid="uid://rbkobbdftd4e" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-cappucinoassasino.png" id="3_m2yrg"]
 [ext_resource type="Texture2D" uid="uid://dsotrky0i7eu1" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tralalerotralala.png" id="4_qs2qt"]
 [ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="5_230ae"]
+[ext_resource type="Texture2D" uid="uid://n7332xqqrl5j" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Pixelated Race at the Finish Line.png" id="8_230ae"]
+[ext_resource type="Texture2D" uid="uid://bdbys14j8m1e8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/arrow.png" id="9_2e6au"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2e6au"]
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -15,7 +21,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_883pe")
-character_names = Array[String]([" Balerina Capucina", "capucino assasino", "tralalero tralala", "tung tung tung sahur"])
+character_names = Array[String]([" Balerina Capucina", "Cappucino Assasino", "Tralalero Tralala", "Tung Tung Tung Sahur"])
+navigation_sound = ExtResource("2_qs2qt")
+selection_sound = ExtResource("3_230ae")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -32,6 +40,7 @@ grow_vertical = 0
 
 [node name="Character1" type="TextureRect" parent="."]
 visible = false
+top_level = true
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -39,6 +48,7 @@ texture = ExtResource("2_e5257")
 
 [node name="Character2" type="TextureRect" parent="."]
 visible = false
+top_level = true
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -46,6 +56,7 @@ texture = ExtResource("3_m2yrg")
 
 [node name="Character3" type="TextureRect" parent="."]
 visible = false
+top_level = true
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
@@ -53,7 +64,49 @@ texture = ExtResource("4_qs2qt")
 
 [node name="Character4" type="TextureRect" parent="."]
 visible = false
+top_level = true
 layout_mode = 2
 offset_right = 128.0
 offset_bottom = 128.0
 texture = ExtResource("5_230ae")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(322.45, 78)
+scale = Vector2(0.62998, 0.548047)
+texture = ExtResource("8_230ae")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 270.0
+offset_right = 321.0
+offset_bottom = 293.0
+scale = Vector2(2, 2)
+text = "PILIH ANOMALI MU!"
+
+[node name="LeftButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 56.0
+offset_top = 132.0
+offset_right = 192.0
+offset_bottom = 268.0
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2e6au")
+icon = ExtResource("9_2e6au")
+flat = true
+
+[node name="RightButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 571.0
+offset_top = 196.0
+offset_right = 707.0
+offset_bottom = 332.0
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2e6au")
+icon = ExtResource("9_2e6au")
+flat = true

@@ -12,7 +12,7 @@ func _ready():
 	if not target_racer:
 		target_racer = get_parent().find_child("Player") 
 
-func _process(delta):
+func _process(_delta):
 	if target_racer and needle:
 		
 		var speed = target_racer.ReturnMovementSpeed()

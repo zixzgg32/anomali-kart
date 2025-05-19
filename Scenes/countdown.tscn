@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://defqg2m0bdp2c"]
+
+[ext_resource type="Script" uid="uid://yrd6nbp70h6a" path="res://Scripts/General/countdown.gd" id="1_acgio"]
+[ext_resource type="AudioStream" uid="uid://jprcbbkpm0fj" path="res://Asset/sound/soundeffect/soundeffect/countdown.wav" id="2_jdl17"]
+
+[node name="countdown" type="Node2D"]
+script = ExtResource("1_acgio")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jdl17")
+volume_db = 1.0
+mix_target = 2
+
+[node name="Label" type="Label" parent="."]
+offset_left = 310.0
+offset_top = 128.0
+offset_right = 520.0
+offset_bottom = 244.0
+scale = Vector2(2, 2)

@@ -8,7 +8,7 @@ extends Node2D
 @export var _backgroundElements : Node2D
 
 var character_textures := [
-	"res://Asset/Sprites/anomali garammadu.png",
+	"res://Asset/Sprites/a5.png",
 	"res://Asset/Sprites/Anomali cappucino assasion.png",
 	"res://Asset/Sprites/anomali tralelelo tralala (1).png",
 	"res://Asset/Sprites/tung tung tung sahur.png"
@@ -19,6 +19,8 @@ func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
 	var texture = load(texture_path)
+	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
+	add_child(countdown)
 	_player.set_character_sprite(texture)
 	_map.Setup(Globals.screenSize, _player)
 	_collision.Setup()
