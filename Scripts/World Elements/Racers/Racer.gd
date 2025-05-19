@@ -80,6 +80,9 @@ func SetCollisionBump(bumpDir : Vector3):
 		_isPushedBack = true
 		_currPushbackTime = _pushbackTime
 
+func get_movement_speed() -> float:
+	return _movementSpeed
+	
 func ApplyCollisionBump():
 	_currPushbackTime -= get_process_delta_time()
 	if(_currPushbackTime <= 0.0):

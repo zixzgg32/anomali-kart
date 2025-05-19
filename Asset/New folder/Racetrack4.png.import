@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nc4ndbpoev6r"
-path="res://.godot/imported/Racetrack4.png-22d40671f998b21b963ebf618bfc011b.ctex"
+path="res://.godot/imported/Racetrack4.png-46b635bbdd6a7dc5302e313d58331d37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/Track/Racetrack4.png"
-dest_files=["res://.godot/imported/Racetrack4.png-22d40671f998b21b963ebf618bfc011b.ctex"]
+source_file="res://Asset/New folder/Racetrack4.png"
+dest_files=["res://.godot/imported/Racetrack4.png-46b635bbdd6a7dc5302e313d58331d37.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=31 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
@@ -18,6 +18,10 @@
 [ext_resource type="Script" uid="uid://bfboerckacjb" path="res://Scripts/General/AnimationHandler.gd" id="13_6hxns"]
 [ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="14_b3802"]
 [ext_resource type="Texture2D" uid="uid://d1nvgl514d4vw" path="res://Textures/Hazards/Orange_Pipes.png" id="16_t3snl"]
+[ext_resource type="Script" uid="uid://uig64etelmq3" path="res://Scripts/General/speedometer.gd" id="19_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://iyynhsmk05y8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speedometer.png" id="19_pdsj5"]
+[ext_resource type="Texture2D" uid="uid://cj4hxj67kvo03" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/needle-rotate.png" id="20_ee4r6"]
+[ext_resource type="Script" uid="uid://bly6xon2vy22n" path="res://Scripts/General/needle_rotate.gd" id="21_gt3je"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhngl"]
 shader = ExtResource("3_okd74")
@@ -957,6 +961,7 @@ region_rect = Rect2(0, 0, 16, 8)
 
 [node name="Green Pipe" type="Sprite2D" parent="Sprite Handler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-117, -177)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -968,6 +973,7 @@ _mapPosition = Vector3(400, 0, 64)
 
 [node name="Green Pipe2" type="Sprite2D" parent="Sprite Handler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-114, -142)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -979,6 +985,7 @@ _mapPosition = Vector3(400, 0, 144)
 
 [node name="Green Pipe3" type="Sprite2D" parent="Sprite Handler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-126, -161)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -990,6 +997,7 @@ _mapPosition = Vector3(616, 0, 64)
 
 [node name="Green Pipe4" type="Sprite2D" parent="Sprite Handler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-92, -138)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1003,6 +1011,7 @@ _mapPosition = Vector3(616, 0, 144)
 
 [node name="Green Pipe" type="Sprite2D" parent="Sprite Handler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-114, -145)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1014,6 +1023,7 @@ _mapPosition = Vector3(744, 0, 416)
 
 [node name="Green Pipe2" type="Sprite2D" parent="Sprite Handler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-121, -148)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1025,6 +1035,7 @@ _mapPosition = Vector3(744, 0, 552)
 
 [node name="Green Pipe3" type="Sprite2D" parent="Sprite Handler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-121, -142)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1036,6 +1047,7 @@ _mapPosition = Vector3(848, 0, 464)
 
 [node name="Green Pipe4" type="Sprite2D" parent="Sprite Handler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-122, -137)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1049,6 +1061,7 @@ _mapPosition = Vector3(848, 0, 528)
 
 [node name="Green Pipe" type="Sprite2D" parent="Sprite Handler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-108, -138)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1060,6 +1073,7 @@ _mapPosition = Vector3(552, 0, 336)
 
 [node name="Green Pipe2" type="Sprite2D" parent="Sprite Handler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-100, -128)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1071,6 +1085,7 @@ _mapPosition = Vector3(464, 0, 432)
 
 [node name="Green Pipe3" type="Sprite2D" parent="Sprite Handler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-102, -131)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1082,6 +1097,7 @@ _mapPosition = Vector3(464, 0, 304)
 
 [node name="Green Pipe4" type="Sprite2D" parent="Sprite Handler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-122, -127)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1095,6 +1111,7 @@ _mapPosition = Vector3(336, 0, 336)
 
 [node name="Green Pipe" type="Sprite2D" parent="Sprite Handler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-109, -133)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1106,6 +1123,7 @@ _mapPosition = Vector3(216, 0, 1008)
 
 [node name="Green Pipe2" type="Sprite2D" parent="Sprite Handler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-119, -133)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1117,6 +1135,7 @@ _mapPosition = Vector3(136, 0, 976)
 
 [node name="Green Pipe3" type="Sprite2D" parent="Sprite Handler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-119, -133)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1128,6 +1147,7 @@ _mapPosition = Vector3(88, 0, 904)
 
 [node name="Green Pipe4" type="Sprite2D" parent="Sprite Handler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
 texture_filter = 1
+position = Vector2(-107, -129)
 scale = Vector2(3, 3)
 texture = ExtResource("16_t3snl")
 region_enabled = true
@@ -1141,3 +1161,20 @@ _mapPosition = Vector3(64, 0, 816)
 script = ExtResource("13_6hxns")
 _effectsPlayer = NodePath("../Racers/Player/Road Type Effects/Effects Player")
 _specialWheelEffect = [NodePath("../Racers/Player/Road Type Effects/Right Wheel Special"), NodePath("../Racers/Player/Road Type Effects/Left Wheel Special")]
+
+[node name="Speedometer" type="Node2D" parent="." node_paths=PackedStringArray("needle")]
+script = ExtResource("19_ee4r6")
+needle = NodePath("needle_rotate")
+
+[node name="speedometer" type="Sprite2D" parent="Speedometer"]
+position = Vector2(610, 329)
+scale = Vector2(0.5, 0.518)
+texture = ExtResource("19_pdsj5")
+
+[node name="needle_rotate" type="Sprite2D" parent="Speedometer"]
+top_level = true
+position = Vector2(610, 329)
+rotation = -2.61799
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("20_ee4r6")
+script = ExtResource("21_gt3je")
