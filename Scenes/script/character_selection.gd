@@ -88,4 +88,8 @@ func update_selection():
 func confirm_selection():
 	play_sound(selection_sound)
 	Globals.selected_character_index = current_index
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://Scenes/trackSelection.tscn")
+	
+func go_back():
+	play_sound(navigation_sound)
+	get_tree().change_scene_to_file("res://Scenes/mainMenu.tscn")
