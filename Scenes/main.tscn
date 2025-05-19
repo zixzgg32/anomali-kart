@@ -882,6 +882,7 @@ _mapMaxRotationSpeed = 1.5
 _mapAccelRotationSpeed = 2.0
 _mapDeaccelRotationSpeed = 3.0
 _rotationRadius = 36.0
+_mapVerticalPosition = 3.8
 
 [node name="Collision Handler" type="Node" parent="Map"]
 script = ExtResource("6_q57ja")
