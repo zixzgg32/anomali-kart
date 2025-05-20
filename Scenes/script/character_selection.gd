@@ -7,12 +7,14 @@ extends Control
 	"Character3",
 	"Character4"
 ]
+@export var bgm: AudioStream
 @export var navigation_sound: AudioStream
 @export var selection_sound: AudioStream
-# Nama tombol sebagai string
+@export var bgm_volume: float = -10.0
 @export var left_button_name: String = "LeftButton"
 @export var right_button_name: String = "RightButton"
 
+var bgm_player: AudioStreamPlayer
 var current_index: int = 0
 var audio_player: AudioStreamPlayer
 var left_button: Button
@@ -23,11 +25,18 @@ func _ready():
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	
-	# Mencari tombol berdasarkan nama
+	bgm_player = AudioStreamPlayer.new()
+	add_child(bgm_player)
+	if bgm:
+		bgm_player.stream = bgm
+		bgm_player.volume_db = bgm_volume
+		bgm_player.play()
+	
+	
 	left_button = get_node_or_null(left_button_name) as Button
 	right_button = get_node_or_null(right_button_name) as Button
 	
-	# Hubungkan sinyal jika tombol ditemukan
+	
 	if left_button:
 		left_button.pressed.connect(_on_left_button_pressed)
 	else:
@@ -87,9 +96,17 @@ func update_selection():
 	
 func confirm_selection():
 	play_sound(selection_sound)
+	fade_out_bgm()
 	Globals.selected_character_index = current_index
 	get_tree().change_scene_to_file("res://Scenes/trackSelection.tscn")
 	
 func go_back():
 	play_sound(navigation_sound)
 	get_tree().change_scene_to_file("res://Scenes/mainMenu.tscn")
+	
+func fade_out_bgm(duration: float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(bgm_player, "volume_db", -80.0, duration)
+	await tween.finished
+	bgm_player.stop()
+	bgm_player.volume_db = bgm_volume  

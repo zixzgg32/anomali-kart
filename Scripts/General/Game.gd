@@ -6,6 +6,7 @@ extends Node2D
 @export var _spriteHandler : Node2D
 @export var _animationHandler : Node
 @export var _backgroundElements : Node2D
+@export var bgm_player : AudioStreamPlayer 
 
 var character_textures := [
 	"res://Asset/Sprites/a5.png",
@@ -14,19 +15,22 @@ var character_textures := [
 	"res://Asset/Sprites/tung tung tung sahur.png"
 ]
 
-
 func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
 	var texture = load(texture_path)
 	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
 	add_child(countdown)
+	
 	_player.set_character_sprite(texture)
 	_map.Setup(Globals.screenSize, _player)
 	_collision.Setup()
 	_player.Setup(_map.texture.get_size().x)
 	_spriteHandler.Setup(_map.ReturnWorldMatrix(), _map.texture.get_size().x, _player)
 	_animationHandler.Setup(_player)
+	
+	if bgm_player:
+		bgm_player.play()
 
 func _process(_delta):
 	_map.Update(_player)

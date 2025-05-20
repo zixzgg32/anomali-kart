@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl8g0v866geuu"]
+[gd_scene load_steps=12 format=3 uid="uid://bl8g0v866geuu"]
 
 [ext_resource type="Script" uid="uid://bbqoyq62o3gh4" path="res://Scenes/script/character_selection.gd" id="1_883pe"]
 [ext_resource type="Texture2D" uid="uid://cugcssjgx7mt5" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png" id="2_e5257"]
+[ext_resource type="AudioStream" uid="uid://0f8wgwv15ci4" path="res://Asset/sound/music/music/mainmenu2.mp3" id="2_fat8i"]
 [ext_resource type="AudioStream" uid="uid://bbmehtt8domrf" path="res://Asset/sound/soundeffect/soundeffect/hit2.mp3" id="2_qs2qt"]
 [ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="3_230ae"]
 [ext_resource type="Texture2D" uid="uid://rbkobbdftd4e" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-cappucinoassasino.png" id="3_m2yrg"]
@@ -22,10 +23,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_883pe")
 character_names = Array[String]([" Balerina Capucina", "Cappucino Assasino", "Tralalero Tralala", "Tung Tung Tung Sahur"])
+bgm = ExtResource("2_fat8i")
 navigation_sound = ExtResource("2_qs2qt")
 selection_sound = ExtResource("3_230ae")
 
 [node name="Label" type="Label" parent="."]
+top_level = true
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -33,8 +36,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -23.0
+offset_top = -125.0
 offset_right = 20.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -77,11 +81,11 @@ texture = ExtResource("8_230ae")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 166.0
-offset_top = 270.0
-offset_right = 321.0
-offset_bottom = 293.0
-scale = Vector2(2, 2)
+offset_left = 203.0
+offset_top = 258.0
+offset_right = 358.0
+offset_bottom = 281.0
+scale = Vector2(1.5, 1.5)
 text = "PILIH ANOMALI MU!"
 
 [node name="LeftButton" type="Button" parent="."]

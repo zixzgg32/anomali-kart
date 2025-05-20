@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://clnswsd714mem"]
+[gd_scene load_steps=12 format=3 uid="uid://clnswsd714mem"]
 
 [ext_resource type="Script" uid="uid://bpydggaj7j0s1" path="res://Scenes/script/track_selection.gd" id="1_n15fk"]
+[ext_resource type="AudioStream" uid="uid://0f8wgwv15ci4" path="res://Asset/sound/music/music/mainmenu2.mp3" id="2_0f3pg"]
 [ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="2_15gxc"]
 [ext_resource type="AudioStream" uid="uid://bbmehtt8domrf" path="res://Asset/sound/soundeffect/soundeffect/hit2.mp3" id="2_aogdj"]
 [ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="3_0f3pg"]
@@ -20,6 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n15fk")
+bgm = ExtResource("2_0f3pg")
 navigation_sound = ExtResource("2_aogdj")
 selection_sound = ExtResource("3_0f3pg")
 
@@ -31,8 +33,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -23.0
+offset_top = -127.0
 offset_right = 20.0
+offset_bottom = -104.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -77,21 +80,22 @@ scale = Vector2(0.205, 0.205)
 texture = ExtResource("5_aogdj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-show_behind_parent = true
 position = Vector2(322.45, 78)
 scale = Vector2(0.62998, 0.548047)
 texture = ExtResource("6_m0ugf")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 191.0
-offset_top = 253.0
-offset_right = 325.0
-offset_bottom = 276.0
-scale = Vector2(2, 2)
+layout_mode = 0
+offset_left = 216.0
+offset_top = 258.0
+offset_right = 350.0
+offset_bottom = 281.0
+scale = Vector2(1.5, 1.5)
 text = "PILIH TRACK MU!"
 
 [node name="LeftButton" type="Button" parent="."]
 top_level = true
+layout_mode = 0
 offset_left = 56.0
 offset_top = 132.0
 offset_right = 192.0
@@ -104,6 +108,7 @@ flat = true
 
 [node name="RightButton" type="Button" parent="."]
 top_level = true
+layout_mode = 0
 offset_left = 571.0
 offset_top = 196.0
 offset_right = 707.0

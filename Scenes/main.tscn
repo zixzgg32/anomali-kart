@@ -1,21 +1,22 @@
-[gd_scene load_steps=32 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=34 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
 [ext_resource type="Script" uid="uid://dxo1wux5bj8wx" path="res://Scripts/On Screen Elements/BackgroundEffects.gd" id="2_330he"]
-[ext_resource type="Texture2D" uid="uid://cefyc1o8c12cw" path="res://Textures/Tracks/Donut Plains 1 - Sky Line.png" id="3_ht13n"]
 [ext_resource type="Shader" uid="uid://dcbeqwnm716yv" path="res://Scripts/Shaders/ModeSeven.gdshader" id="3_okd74"]
-[ext_resource type="Texture2D" uid="uid://do4l3t6fepcy8" path="res://Textures/Tracks/Donut Plains 1.png" id="3_q5wi2"]
 [ext_resource type="Texture2D" uid="uid://b2p41drytlkxt" path="res://Textures/Tracks/Donut Plains 1 - Tree Line.png" id="3_vt36i"]
-[ext_resource type="Texture2D" uid="uid://cnp7d7djiq0dd" path="res://Textures/Tracks/Grass_Tile.png" id="4_7c8ey"]
 [ext_resource type="Script" uid="uid://b1bl5wnf8vttq" path="res://Scripts/World Elements/Pseudo3D.gd" id="4_s71t4"]
+[ext_resource type="Texture2D" uid="uid://8q1ttsmdd8vr" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/background_stage1.png" id="4_u50mg"]
 [ext_resource type="Texture2D" uid="uid://60luu68tdgkn" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Flag (2).png" id="6_gt3je"]
 [ext_resource type="Script" uid="uid://csptjyivkvl3h" path="res://Scripts/General/Collision.gd" id="6_q57ja"]
-[ext_resource type="Texture2D" uid="uid://b56nphrtp74n6" path="res://Textures/Tracks/Donut Plains 1 - Road Type Map.png" id="7_aoipd"]
+[ext_resource type="Texture2D" uid="uid://co5k8mojq65co" path="res://Textures/Texture/Sand.png" id="7_3pmx8"]
 [ext_resource type="Script" uid="uid://dqs3p6n34ligd" path="res://Scripts/On Screen Elements/SpriteHandler.gd" id="7_wmybs"]
 [ext_resource type="Script" uid="uid://b30wiesbyfgrw" path="res://Scripts/World Elements/Racers/Player.gd" id="8_lejxo"]
+[ext_resource type="Texture2D" uid="uid://do4l3t6fepcy8" path="res://Textures/Tracks/Donut Plains 1.png" id="8_u50mg"]
+[ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="10_1w6v2"]
 [ext_resource type="Script" uid="uid://4fv2yvhwf6rr" path="res://Scripts/World Elements/Hazard.gd" id="11_gfs62"]
 [ext_resource type="Texture2D" uid="uid://dwtfoow25238t" path="res://Textures/Racers/Particles/Road_Type_Effects_Sheet.png" id="11_w61pk"]
+[ext_resource type="Texture2D" uid="uid://bvl8fpjh30tjh" path="res://Textures/Tracks/Racetrack1Collision.png" id="12_cbgmd"]
 [ext_resource type="Script" uid="uid://bfboerckacjb" path="res://Scripts/General/AnimationHandler.gd" id="13_6hxns"]
 [ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="14_b3802"]
 [ext_resource type="Texture2D" uid="uid://d1nvgl514d4vw" path="res://Textures/Hazards/Orange_Pipes.png" id="16_t3snl"]
@@ -23,11 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://iyynhsmk05y8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speedometer.png" id="19_pdsj5"]
 [ext_resource type="Texture2D" uid="uid://cj4hxj67kvo03" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/needle-rotate.png" id="20_ee4r6"]
 [ext_resource type="Script" uid="uid://bly6xon2vy22n" path="res://Scripts/General/needle_rotate.gd" id="21_gt3je"]
+[ext_resource type="AudioStream" uid="uid://c2djqrutm24bd" path="res://Asset/sound/music/music/racing3.mp3" id="24_3pmx8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhngl"]
 shader = ExtResource("3_okd74")
-shader_parameter/trackTexture = ExtResource("3_q5wi2")
-shader_parameter/grassTexture = ExtResource("4_7c8ey")
+shader_parameter/trackTexture = ExtResource("10_1w6v2")
+shader_parameter/grassTexture = ExtResource("7_3pmx8")
 shader_parameter/mapMatrix = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_65qb5"]
@@ -828,7 +830,7 @@ _data = {
 &"Sink_Splash_Anim": SubResource("Animation_37x3c")
 }
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("_map", "_collision", "_player", "_spriteHandler", "_animationHandler", "_backgroundElements")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_map", "_collision", "_player", "_spriteHandler", "_animationHandler", "_backgroundElements", "bgm_player")]
 script = ExtResource("1_emb0w")
 _map = NodePath("Map")
 _collision = NodePath("Map/Collision Handler")
@@ -836,6 +838,7 @@ _player = NodePath("Sprite Handler/Racers/Player")
 _spriteHandler = NodePath("Sprite Handler")
 _animationHandler = NodePath("Sprite Handler/Animation Handler")
 _backgroundElements = NodePath("Background Elements")
+bgm_player = NodePath("AudioStreamPlayer")
 
 [node name="Background Elements" type="Node2D" parent="." node_paths=PackedStringArray("_skyLine", "_treeLine")]
 script = ExtResource("2_330he")
@@ -853,12 +856,13 @@ texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 48)
 scale = Vector2(2.67083, 2)
-texture = ExtResource("3_ht13n")
+texture = ExtResource("4_u50mg")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 240, 32)
 
 [node name="Tree Line" type="Sprite2D" parent="Background Elements"]
+visible = false
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 48)
@@ -875,7 +879,7 @@ texture_repeat = 1
 material = SubResource("ShaderMaterial_lhngl")
 position = Vector2(321, 180)
 scale = Vector2(0.626953, 0.351563)
-texture = ExtResource("3_q5wi2")
+texture = ExtResource("8_u50mg")
 script = ExtResource("4_s71t4")
 _mapStartRotationAngle = Vector2(4.9, 6.25)
 _mapMaxRotationSpeed = 1.5
@@ -886,7 +890,7 @@ _mapVerticalPosition = 3.8
 
 [node name="Collision Handler" type="Node" parent="Map"]
 script = ExtResource("6_q57ja")
-_collisionMap = ExtResource("7_aoipd")
+_collisionMap = ExtResource("12_cbgmd")
 _wallColor = Color(0.4, 0.4, 0.4, 1)
 _roadTypeColors = Array[Color]([Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0.8, 0.8, 0.8, 1), Color(0.603922, 0.603922, 0.603922, 1), Color(0.4, 0.4, 0.4, 1), Color(0.2, 0.2, 0.2, 1)])
 
@@ -901,6 +905,7 @@ script = ExtResource("8_lejxo")
 _movementDeaccel = 160.0
 _collisionHandler = NodePath("../../../Map/Collision Handler")
 _spriteGFX = NodePath("GFX")
+_mapPosition = Vector3(379, 0, 490)
 
 [node name="GFX" type="Sprite2D" parent="Sprite Handler/Racers/Player"]
 z_as_relative = false
@@ -1184,3 +1189,7 @@ script = ExtResource("21_gt3je")
 position = Vector2(40, 45)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_gt3je")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_3pmx8")
+autoplay = true

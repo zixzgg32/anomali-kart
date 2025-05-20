@@ -7,22 +7,31 @@ extends Control
 	"Track3",
 	"Track4"
 ]
+@export var bgm: AudioStream
 @export var navigation_sound: AudioStream
 @export var selection_sound: AudioStream
 @export var left_button_name: String = "LeftButton"
 @export var right_button_name: String = "RightButton"
+@export var bgm_volume: float = -10.0
 
 var current_index: int = 0
 var audio_player: AudioStreamPlayer
 var left_button: Button
 var right_button: Button
 var back_button: Button
+var bgm_player: AudioStreamPlayer
 
 func _ready():
 	# Initialize audio player
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
-	
+	bgm_player = AudioStreamPlayer.new()
+	add_child(bgm_player)
+	if bgm:
+		bgm_player.stream = bgm
+		bgm_player.volume_db = bgm_volume
+		bgm_player.play()
+		
 	# Setup buttons
 	setup_buttons()
 	
@@ -30,6 +39,8 @@ func _ready():
 	initialize_tracks()
 	
 	update_selection()
+
+
 
 func setup_buttons():
 	left_button = get_node_or_null(left_button_name) as Button
@@ -94,6 +105,7 @@ func update_selection():
 
 func confirm_selection():
 	play_sound(selection_sound)
+	fade_out_bgm()
 	Globals.selected_track_index = current_index
 	print("Track selected: ", track_names[current_index])
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
@@ -101,3 +113,10 @@ func confirm_selection():
 func go_back():
 	play_sound(navigation_sound)
 	get_tree().change_scene_to_file("res://Scenes/characterSelection.tscn")
+
+func fade_out_bgm(duration: float = 0.5):
+	var tween = create_tween()
+	tween.tween_property(bgm_player, "volume_db", -80.0, duration)
+	await tween.finished
+	bgm_player.stop()
+	bgm_player.volume_db = bgm_volume  
