@@ -25,73 +25,42 @@ bgm = ExtResource("2_0f3pg")
 navigation_sound = ExtResource("2_aogdj")
 selection_sound = ExtResource("3_0f3pg")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -127.0
-offset_right = 20.0
-offset_bottom = -104.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="Track1" type="TextureRect" parent="."]
-visible = false
 top_level = true
 layout_mode = 1
-offset_left = 215.0
-offset_right = 1239.0
+offset_right = 1024.0
 offset_bottom = 1024.0
-scale = Vector2(0.205, 0.205)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_15gxc")
 
 [node name="Track2" type="TextureRect" parent="."]
-visible = false
 top_level = true
 layout_mode = 1
-offset_left = 215.0
-offset_right = 1239.0
+offset_right = 1024.0
 offset_bottom = 1024.0
-scale = Vector2(0.205, 0.205)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("3_m0ugf")
 
 [node name="Track3" type="TextureRect" parent="."]
-visible = false
 top_level = true
 layout_mode = 1
-offset_left = 215.0
-offset_right = 1239.0
+offset_right = 1024.0
 offset_bottom = 1024.0
-scale = Vector2(0.205, 0.205)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("4_6a105")
 
 [node name="Track4" type="TextureRect" parent="."]
-visible = false
 top_level = true
 layout_mode = 1
-offset_left = 215.0
-offset_right = 1239.0
+offset_right = 1024.0
 offset_bottom = 1024.0
-scale = Vector2(0.205, 0.205)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("5_aogdj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(322.45, 78)
 scale = Vector2(0.62998, 0.548047)
 texture = ExtResource("6_m0ugf")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 258.0
-offset_right = 350.0
-offset_bottom = 281.0
-scale = Vector2(1.5, 1.5)
-text = "PILIH TRACK MU!"
 
 [node name="LeftButton" type="Button" parent="."]
 top_level = true
@@ -119,3 +88,26 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_aogdj")
 icon = ExtResource("7_6a105")
 flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -94.0
+offset_right = 20.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 291.0
+offset_right = 350.0
+offset_bottom = 314.0
+scale = Vector2(1.5, 1.5)
+text = "PILIH TRACK MU!"

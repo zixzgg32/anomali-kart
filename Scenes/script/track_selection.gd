@@ -94,13 +94,17 @@ func play_sound(sound: AudioStream):
 func update_selection():
 	for i in range(track_sprites.size()):
 		var sprite = get_node_or_null(track_sprites[i])
-		if sprite:
-			sprite.visible = (i == current_index)
-			if i == current_index:
-				var center = get_viewport_rect().size / 2
-				sprite.position = center - sprite.size / 2
-				print("Selected track:", track_names[i])
-	
+		if sprite == null:
+			printerr("Track sprite not found for path:", track_sprites[i])
+			continue
+		sprite.visible = (i == current_index)
+		if i == current_index:
+			# Hitung ukuran visual setelah scaling
+			var screen_size = Vector2(640, 360)
+			var visual_size = sprite.size * sprite.scale
+			sprite.position = (screen_size - visual_size) / 2
+			print("Sprite position:", sprite.position)
+			print("Selected track:", track_names[i])
 	$Label.text = track_names[current_index]
 
 func confirm_selection():
