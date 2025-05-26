@@ -47,6 +47,14 @@ var sky := [
 	"res://Asset/New folder/sky3.png",
 	"res://Asset/New folder/sky4.png"
 ]
+
+var bgmlist := [
+	"res://Asset/sound/music/music/Desert Zone.mp3",
+	"res://Asset/sound/music/music/Jungle.wav",
+	"res://Asset/sound/music/music/the_spanish_ninja_c64_style.ogg",
+	"res://Asset/sound/music/music/Retroracing Beach.mp3"
+	
+]
 func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
@@ -54,7 +62,8 @@ func _ready():
 	var selected_index2 = Globals.selected_track_index
 	var tracks = track_textures[selected_index2]
 	var bg = background[selected_index2]
-	var sk = sky[selected_index2] 
+	var sk = sky[selected_index2]
+	var bgm_path = bgmlist[selected_index2]
 	
 	var grass_texture = texture_tile[selected_index2]
 	var collision_texture = collision[selected_index2]
@@ -63,6 +72,7 @@ func _ready():
 	var collision = load(collision_texture)
 	var s = load(bg)
 	var b = load(sk)
+	var bgm_stream = load(bgm_path)
 	$BackgroundElements/SkyLine.texture = s
 	$BackgroundElements/Background.texture = b
 	$Map.texture = track
@@ -83,9 +93,9 @@ func _ready():
 	_player.Setup(_map.texture.get_size().x)
 	_spriteHandler.Setup(_map.ReturnWorldMatrix(), _map.texture.get_size().x, _player)
 	_animationHandler.Setup(_player)
+	bgm_player.stream = bgm_stream
+	bgm_player.play()
 	
-	if bgm_player:
-		bgm_player.play()
 
 func _process(_delta):
 	_map.Update(_player)
