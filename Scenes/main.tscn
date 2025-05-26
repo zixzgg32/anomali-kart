@@ -832,25 +832,25 @@ _data = {
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_map", "_collision", "_player", "_spriteHandler", "_animationHandler", "_backgroundElements", "bgm_player")]
 script = ExtResource("1_emb0w")
 _map = NodePath("Map")
-_collision = NodePath("Map/Collision Handler")
+_collision = NodePath("Map/CollisionHandler")
 _player = NodePath("Sprite Handler/Racers/Player")
 _spriteHandler = NodePath("Sprite Handler")
 _animationHandler = NodePath("Sprite Handler/Animation Handler")
-_backgroundElements = NodePath("Background Elements")
+_backgroundElements = NodePath("BackgroundElements")
 bgm_player = NodePath("AudioStreamPlayer")
 
-[node name="Background Elements" type="Node2D" parent="." node_paths=PackedStringArray("_skyLine", "_treeLine")]
+[node name="BackgroundElements" type="Node2D" parent="." node_paths=PackedStringArray("_skyLine", "_treeLine")]
 script = ExtResource("2_330he")
-_skyLine = NodePath("Sky Line")
+_skyLine = NodePath("SkyLine")
 _treeLine = NodePath("Tree Line")
 
-[node name="Background" type="Sprite2D" parent="Background Elements"]
+[node name="Background" type="Sprite2D" parent="BackgroundElements"]
 z_index = -1
 position = Vector2(321.5, 180)
 scale = Vector2(20.0938, 11.25)
 texture = ExtResource("1_5044a")
 
-[node name="Sky Line" type="Sprite2D" parent="Background Elements"]
+[node name="SkyLine" type="Sprite2D" parent="BackgroundElements"]
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(0, 48)
@@ -860,7 +860,7 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 240, 32)
 
-[node name="Tree Line" type="Sprite2D" parent="Background Elements"]
+[node name="Tree Line" type="Sprite2D" parent="BackgroundElements"]
 visible = false
 texture_filter = 1
 texture_repeat = 2
@@ -887,7 +887,7 @@ _mapDeaccelRotationSpeed = 3.0
 _rotationRadius = 36.0
 _mapVerticalPosition = 3.8
 
-[node name="Collision Handler" type="Node" parent="Map"]
+[node name="CollisionHandler" type="Node" parent="Map"]
 script = ExtResource("6_q57ja")
 _collisionMap = ExtResource("12_cbgmd")
 _wallColor = Color(0.4, 0.4, 0.4, 1)
@@ -902,9 +902,9 @@ script = ExtResource("7_wmybs")
 position = Vector2(-1.52588e-05, 0)
 script = ExtResource("8_lejxo")
 _movementDeaccel = 160.0
-_collisionHandler = NodePath("../../../Map/Collision Handler")
+_collisionHandler = NodePath("../../../Map/CollisionHandler")
 _spriteGFX = NodePath("GFX")
-_mapPosition = Vector3(379, 0, 490)
+_mapPosition = Vector3(400, 0, 635.945)
 
 [node name="GFX" type="Sprite2D" parent="Sprite Handler/Racers/Player"]
 z_as_relative = false

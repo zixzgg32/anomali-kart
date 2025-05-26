@@ -15,10 +15,65 @@ var character_textures := [
 	"res://Asset/Sprites/tung tung tung sahur.png"
 ]
 
+var track_textures := [
+	"res://Asset/New folder/Racetrack1.png",
+	"res://Asset/New folder/Racetrack2.png",
+	"res://Asset/New folder/Racetrack3.png",
+	"res://Asset/New folder/Racetrack4.png"
+]
+
+var texture_tile := [
+	"res://Textures/Texture/Sand.png",
+	"res://Textures/Texture/Grass.png",
+	"res://Textures/Texture/Mud.png",
+	"res://Textures/Texture/Water.png"
+]
+var collision := [
+	"res://Textures/Tracks/Racetrack1Collision.png",
+	"res://Textures/Tracks/Racetrack2Collision.png",
+	"res://Textures/Tracks/Racetrack3Collision.png",
+	"res://Textures/Tracks/Racetrack4Collision.png"
+]
+var background := [
+	"res://Asset/New folder/background_stage1 (1).png",
+	"res://Asset/New folder/background_stage2 (2).png",
+	"res://Asset/New folder/stage_background_cappucino.png",
+	"res://Asset/New folder/bg4.png"
+]
+
+var sky := [
+	"res://Asset/New folder/sky1.png",
+	"res://Asset/New folder/sky2.png",
+	"res://Asset/New folder/sky3.png",
+	"res://Asset/New folder/sky4.png"
+]
 func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
 	var texture = load(texture_path)
+	var selected_index2 = Globals.selected_track_index
+	var tracks = track_textures[selected_index2]
+	var bg = background[selected_index2]
+	var sk = sky[selected_index2] 
+	
+	var grass_texture = texture_tile[selected_index2]
+	var collision_texture = collision[selected_index2]
+	var tile = load(grass_texture)
+	var track = load(tracks)
+	var collision = load(collision_texture)
+	var s = load(bg)
+	var b = load(sk)
+	$BackgroundElements/SkyLine.texture = s
+	$BackgroundElements/Background.texture = b
+	$Map.texture = track
+	var material = $Map.material
+	material.set_shader_parameter("trackTexture", track)
+	material.set_shader_parameter("grassTexture", tile)
+	
+	var collision_node = $Map/CollisionHandler  # Ganti dengan path ke node collision.gd
+	collision_node._collisionMap = collision
+	if collision_node.has_method("process_collision_data"):
+		collision_node.process_collision_data()
 	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
 	add_child(countdown)
 	

@@ -15,4 +15,3 @@ func MoveBackgroundElements(element : Sprite2D, mapRotation : float):
 	var rotationDegree : float = rad_to_deg(mapRotation) / 360
 	var scrollPosition : float = rotationDegree * element.texture.get_width()
 	element.region_rect.position.x = -scrollPosition
-

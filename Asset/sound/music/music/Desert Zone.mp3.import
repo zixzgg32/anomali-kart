@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dki7ej0bjrb63"
+path="res://.godot/imported/Desert Zone.mp3-c8d4527fa5adedac6dd0298aafe3afe3.mp3str"
+
+[deps]
+
+source_file="res://Asset/sound/music/music/Desert Zone.mp3"
+dest_files=["res://.godot/imported/Desert Zone.mp3-c8d4527fa5adedac6dd0298aafe3afe3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

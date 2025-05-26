@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cybbdlkflnme1"
+path="res://.godot/imported/Retroracing Beach.mp3-29d699b1ce75ac383ee360b6f03010e7.mp3str"
+
+[deps]
+
+source_file="res://Asset/sound/music/music/Retroracing Beach.mp3"
+dest_files=["res://.godot/imported/Retroracing Beach.mp3-29d699b1ce75ac383ee360b6f03010e7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

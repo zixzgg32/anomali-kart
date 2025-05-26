@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://72pppgioeeqp"
+path="res://.godot/imported/8-Bit Ninja.mp3-8d41e256de4577c906cbb1119331e22d.mp3str"
+
+[deps]
+
+source_file="res://Asset/sound/music/music/8-Bit Ninja.mp3"
+dest_files=["res://.godot/imported/8-Bit Ninja.mp3-8d41e256de4577c906cbb1119331e22d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
