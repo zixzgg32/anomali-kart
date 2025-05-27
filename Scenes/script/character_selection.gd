@@ -21,7 +21,7 @@ var left_button: Button
 var right_button: Button
 
 func _ready():
-	# Inisialisasi AudioStreamPlayer
+	
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	
@@ -47,7 +47,7 @@ func _ready():
 	else:
 		printerr("Right button not found with name:", right_button_name)
 	
-	# Inisialisasi karakter
+	
 	for i in range(character_sprites.size()):
 		var sprite = get_node_or_null(character_sprites[i])
 		if sprite == null:

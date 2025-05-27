@@ -4,8 +4,8 @@ extends Control
 @export var icon_sprite: NodePath = "Icon"
 @export var player_path: NodePath = "/root/Main/Sprite Handler/Racers/Player"
 @export var pseudo3d_path: NodePath = "/root/Main/Map"
-@export var world_map_size: Vector2 = Vector2(1024, 1024) # ukuran world aslinya
-@export var minimap_size: Vector2 = Vector2(96, 96)       # ukuran minimap di UI
+@export var world_map_size: Vector2 = Vector2(1024, 1024) 
+@export var minimap_size: Vector2 = Vector2(96, 96)       
 
 var map_node: TextureRect
 var icon_node: TextureRect

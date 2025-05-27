@@ -55,16 +55,24 @@ var bgmlist := [
 	"res://Asset/sound/music/music/Retroracing Beach.mp3"
 	
 ]
+var icon := [
+	"res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png",
+	"res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-cappucinoassasino.png",
+	"res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tralalerotralala.png",
+	"res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png"
+]
+
 func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
 	var texture = load(texture_path)
+	var iconnn = icon[selected_index]
+	var iconn = load(iconnn)
 	var selected_index2 = Globals.selected_track_index
 	var tracks = track_textures[selected_index2]
 	var bg = background[selected_index2]
 	var sk = sky[selected_index2]
 	var bgm_path = bgmlist[selected_index2]
-	
 	var grass_texture = texture_tile[selected_index2]
 	var collision_texture = collision[selected_index2]
 	var tile = load(grass_texture)
@@ -73,6 +81,8 @@ func _ready():
 	var s = load(bg)
 	var b = load(sk)
 	var bgm_stream = load(bgm_path)
+	$mini_map/Map.texture = track
+	$mini_map/Icon.texture = iconn
 	$BackgroundElements/SkyLine.texture = s
 	$BackgroundElements/Background.texture = b
 	$Map.texture = track
@@ -80,7 +90,7 @@ func _ready():
 	material.set_shader_parameter("trackTexture", track)
 	material.set_shader_parameter("grassTexture", tile)
 	
-	var collision_node = $Map/CollisionHandler  # Ganti dengan path ke node collision.gd
+	var collision_node = $Map/CollisionHandler  
 	collision_node._collisionMap = collision
 	if collision_node.has_method("process_collision_data"):
 		collision_node.process_collision_data()
