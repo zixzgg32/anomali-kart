@@ -4,7 +4,7 @@ extends Control
 
 # Tambahkan path sound untuk setiap grup
 var scene_groups := [
-	{ "name": "scene1", "sound_path": "res://Asset/sound/scene1.mp3" },
+	{ "name": "scene1", "sound_path": "res://Asset/sound/scene1fix.mp3" },
 	{ "name": "scene2", "sound_path": "res://Asset/sound/scene2.mp3" },
 	{ "name": "scene3", "sound_path": "res://Asset/sound/scene3.mp3" }
 ]

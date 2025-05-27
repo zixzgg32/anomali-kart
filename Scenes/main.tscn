@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bttwprgr0f08i" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar bg.png" id="21_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://ca3euxgb1iclq" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar.png" id="22_u50mg"]
 [ext_resource type="AudioStream" uid="uid://c2djqrutm24bd" path="res://Asset/sound/music/music/racing3.mp3" id="24_3pmx8"]
-[ext_resource type="Script" uid="uid://c3w376pn1bx18" path="res://Scripts/On Screen Elements/mini_map.gd" id="25_cbgmd"]
+[ext_resource type="Script" path="res://Scripts/On Screen Elements/mini_map.gd" id="25_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="26_1w6v2"]
 [ext_resource type="Texture2D" uid="uid://cqa2l8njfgefm" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/1 (1).png" id="27_ueoa1"]
 [ext_resource type="Texture2D" uid="uid://bqg387qc6bqtb" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/countdown.png" id="28_6vcvc"]
