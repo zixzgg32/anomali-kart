@@ -50,7 +50,7 @@ var sky := [
 
 var bgmlist := [
 	"res://Asset/sound/music/music/Desert Zone.mp3",
-	"res://Asset/sound/music/music/Jungle.wav",
+	"res://Asset/sound/music/music/jungle.mp3",
 	"res://Asset/sound/music/music/the_spanish_ninja_c64_style.ogg",
 	"res://Asset/sound/music/music/Retroracing Beach.mp3"
 	
@@ -104,6 +104,7 @@ func _ready():
 	_spriteHandler.Setup(_map.ReturnWorldMatrix(), _map.texture.get_size().x, _player)
 	_animationHandler.Setup(_player)
 	bgm_player.stream = bgm_stream
+	bgm_player.autoplay = true
 	bgm_player.play()
 	
 

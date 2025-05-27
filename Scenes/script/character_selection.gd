@@ -62,6 +62,8 @@ func _input(event):
 		navigate_right()
 	elif event.is_action_pressed("ui_accept"):
 		confirm_selection()
+	elif event.is_action_pressed("ui_cancel"):
+		go_back()
 
 func _on_left_button_pressed():
 	navigate_left()
