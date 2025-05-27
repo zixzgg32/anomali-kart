@@ -108,4 +108,17 @@ func show_texture_in_group(group_idx: int, texture_idx: int):
 			if child is TextureRect:
 				texture_rects.append(child)
 		for i in range(texture_rects.size()):
-			texture_rects[i].visible = (i == texture_idx)
+			if i == texture_idx:
+				# Fade in
+				texture_rects[i].visible = true
+				texture_rects[i].modulate.a = 0.0
+				var tween = create_tween()
+				tween.tween_property(texture_rects[i], "modulate:a", 1.0, 0.5)
+			else:
+				# Fade out
+				if texture_rects[i].visible and texture_rects[i].modulate.a > 0.0:
+					var tween = create_tween()
+					tween.tween_property(texture_rects[i], "modulate:a", 0.0, 0.5)
+					tween.tween_callback(Callable(texture_rects[i], "hide"))
+				else:
+					texture_rects[i].visible = false
