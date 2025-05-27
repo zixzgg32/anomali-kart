@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=38 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
@@ -26,6 +26,9 @@
 [ext_resource type="AudioStream" uid="uid://c2djqrutm24bd" path="res://Asset/sound/music/music/racing3.mp3" id="24_3pmx8"]
 [ext_resource type="Script" uid="uid://c3w376pn1bx18" path="res://Scripts/On Screen Elements/mini_map.gd" id="25_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="26_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://cqa2l8njfgefm" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/1 (1).png" id="27_ueoa1"]
+[ext_resource type="Texture2D" uid="uid://bqg387qc6bqtb" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/countdown.png" id="28_6vcvc"]
+[ext_resource type="Texture2D" uid="uid://ce1edabous14y" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/slash.png" id="29_6vcvc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhngl"]
 shader = ExtResource("3_okd74")
@@ -917,7 +920,6 @@ region_enabled = true
 region_rect = Rect2(10, 4, 53, 53)
 
 [node name="Road Type Effects" type="Node2D" parent="Sprite Handler/Racers/Player"]
-visible = false
 
 [node name="Effects Player" type="AnimationPlayer" parent="Sprite Handler/Racers/Player/Road Type Effects"]
 libraries = {
@@ -1242,3 +1244,18 @@ offset_right = 130.0
 offset_bottom = 403.0
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("26_1w6v2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(88, 42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_ueoa1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(158, 42)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("28_6vcvc")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(121, 41)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("29_6vcvc")

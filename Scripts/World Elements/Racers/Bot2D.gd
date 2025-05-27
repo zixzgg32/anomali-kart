@@ -9,7 +9,7 @@ var checkpoints: Array[Vector2] = [
 	Vector2(500, 400)
 ]
 
-# Parameter AI
+
 @export var reaction_distance: float = 50.0
 @export var steering_force: float = 0.5
 

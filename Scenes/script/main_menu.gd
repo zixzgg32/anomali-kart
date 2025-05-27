@@ -9,14 +9,13 @@ var audio_player: AudioStreamPlayer
 var bgm_player: AudioStreamPlayer
 
 func _ready():
-	# Setup audio player untuk sound effects
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	
 	if click_sound:
 		audio_player.stream = click_sound
 	
-	# Setup BGM player
+	
 	bgm_player = AudioStreamPlayer.new()
 	add_child(bgm_player)
 	
@@ -25,11 +24,11 @@ func _ready():
 		bgm_player.volume_db = bgm_volume
 		bgm_player.play()
 	
-	# Mulai dengan transparansi penuh
+	
 	modulate = Color(1, 1, 1, 0)
 	fade_in()
 	
-	# Hubungkan tombol ke fungsi masing-masing
+	
 	$VBoxContainer/"Single Player".pressed.connect(_on_single_player_pressed)
 	$VBoxContainer/"Multiplayer".pressed.connect(_on_multiplayer_pressed)
 	$VBoxContainer/"Settings".pressed.connect(_on_settings_pressed)
