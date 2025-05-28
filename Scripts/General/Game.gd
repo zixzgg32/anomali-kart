@@ -62,6 +62,19 @@ var icon := [
 	"res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png"
 ]
 
+var PlayerLocation := [
+	Vector3(379, 0, 490),
+	Vector3(436.579, 0, 650.6988),
+	Vector3(111.5937, 0, 294.0043),
+	Vector3(484.6098, 0.0, 661.0996)
+]
+var mapStartRotationAngle := [
+	Vector2(4.9, 6.1),
+	Vector2(4.9, 4.8),
+	Vector2(4.9, 3.15),
+	Vector2(4.9, 4.7)
+]
+
 func _ready():
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
@@ -81,6 +94,19 @@ func _ready():
 	var s = load(bg)
 	var b = load(sk)
 	var bgm_stream = load(bgm_path)
+	var map = $Map
+	var racer = $SpriteHandler/Racers/Player
+	if selected_index2 >= 0 and selected_index2 < PlayerLocation.size():
+		var new_pos_3d = PlayerLocation[selected_index2]
+		var selected_pos = mapStartRotationAngle[selected_index2]
+		racer._mapPosition = new_pos_3d
+		racer.position = Vector2(new_pos_3d.x, new_pos_3d.z)
+		if selected_index2 < mapStartRotationAngle.size():
+				map._mapStartRotationAngle = mapStartRotationAngle[selected_index2]
+		else:
+				push_error("mapStartRotationAngle index out of bounds! Using default.")
+				map._mapStartRotationAngle = Vector2.ZERO
+		
 	$mini_map/Map.texture = track
 	$mini_map/Icon.texture = iconn
 	$BackgroundElements/SkyLine.texture = s

@@ -30,6 +30,7 @@ func Update(mapForward : Vector3):
 
 func ReturnPlayerInput() -> Vector2:
 	_inputDir.x = Input.get_action_strength("Left") - Input.get_action_strength("Right")
-	# Added backward input (positive y for backward, negative y for forward)
 	_inputDir.y = Input.get_action_strength("Backward") - Input.get_action_strength("Forward")
+	if _inputDir.x != 0 or _inputDir.y != 0:
+		print("Player Input: ", _inputDir, " | Current Position: ", _mapPosition)
 	return Vector2(_inputDir.x, _inputDir.y)
