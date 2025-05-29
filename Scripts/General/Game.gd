@@ -9,10 +9,10 @@ extends Node2D
 @export var bgm_player : AudioStreamPlayer 
 
 var character_textures := [
-	"res://Asset/Sprites/a5.png",
-	"res://Asset/Sprites/Anomali cappucino assasion.png",
-	"res://Asset/Sprites/anomali tralelelo tralala (1).png",
-	"res://Asset/Sprites/tung tung tung sahur.png"
+	"res://Asset/Sprites/ballerina (2).png",
+	"res://Asset/Sprites/Anomali cappucino assasion (1).png",
+	"res://Asset/Sprites/anomali tralelelo tralala (3).png",
+	"res://Asset/Sprites/anomali (2).png"
 ]
 
 var track_textures := [
