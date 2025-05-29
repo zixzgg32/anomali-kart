@@ -29,10 +29,10 @@ var texture_tile := [
 	"res://Textures/Texture/Water.png"
 ]
 var collision := [
-	"res://Textures/Tracks/Racetrack1Collision.png",
-	"res://Textures/Tracks/Racetrack2Collision.png",
-	"res://Textures/Tracks/Racetrack3Collision.png",
-	"res://Textures/Tracks/Racetrack4Collision.png"
+	"res://Textures/Tracks/raceColl1.png",
+	"res://Textures/Tracks/raceColl2.png",
+	"res://Textures/Tracks/raceColl3.png",
+	"res://Textures/Tracks/raceColl4.png"
 ]
 var background := [
 	"res://Asset/New folder/background_stage1 (1).png",
@@ -63,13 +63,13 @@ var icon := [
 ]
 
 var PlayerLocation := [
-	Vector3(379, 0, 490),
+	Vector3(378, 0, 434),
 	Vector3(436.579, 0, 650.6988),
 	Vector3(111.5937, 0, 294.0043),
 	Vector3(484.6098, 0.0, 661.0996)
 ]
 var mapStartRotationAngle := [
-	Vector2(4.9, 6.1),
+	Vector2(4.9, 9.4),
 	Vector2(4.9, 4.8),
 	Vector2(4.9, 3.15),
 	Vector2(4.9, 4.7)

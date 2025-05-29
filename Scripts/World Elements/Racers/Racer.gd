@@ -52,6 +52,8 @@ func HandleRoadType(nextPixelPos : Vector2i, roadType : Globals.RoadType):
 			_speedMultiplier = 0.1
 		Globals.RoadType.WALL:
 			_speedMultiplier = _speedMultiplier
+		Globals.RoadType.LAP_READER:
+			_speedMultiplier = 1.0
 
 func ReturnOnRoadType() -> Globals.RoadType: return _onRoadType
 

@@ -11,5 +11,6 @@ enum RoadType {
 	GRAVEL = 2,
 	OFF_ROAD = 3,
 	WALL = 4,
-	SINK = 5
+	SINK = 5,
+	LAP_READER = 6 #finish/start line
 } 

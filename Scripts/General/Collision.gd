@@ -6,6 +6,8 @@ var _textureImage : Image
 var _textureWidth : int = 1024
 var _textureHeight : int = 1024
 
+
+
 @export var _wallColor : Color
 @export var _roadTypeColors : Array[Color]
 

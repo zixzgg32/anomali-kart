@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="10_1w6v2"]
 [ext_resource type="Script" uid="uid://4fv2yvhwf6rr" path="res://Scripts/World Elements/Hazard.gd" id="11_gfs62"]
 [ext_resource type="Texture2D" uid="uid://dwtfoow25238t" path="res://Textures/Racers/Particles/Road_Type_Effects_Sheet.png" id="11_w61pk"]
-[ext_resource type="Texture2D" uid="uid://2e4keavisgx7" path="res://Textures/Tracks/raceColl1.png" id="12_hpc6h"]
+[ext_resource type="Texture2D" uid="uid://bvl8fpjh30tjh" path="res://Textures/Tracks/Racetrack1Collision.png" id="12_cbgmd"]
 [ext_resource type="Script" uid="uid://bfboerckacjb" path="res://Scripts/General/AnimationHandler.gd" id="13_6hxns"]
 [ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="14_b3802"]
 [ext_resource type="Texture2D" uid="uid://d1nvgl514d4vw" path="res://Textures/Hazards/Orange_Pipes.png" id="16_t3snl"]
@@ -896,9 +896,9 @@ _mapVerticalPosition = 3.8
 
 [node name="CollisionHandler" type="Node" parent="Map"]
 script = ExtResource("6_q57ja")
-_collisionMap = ExtResource("12_hpc6h")
+_collisionMap = ExtResource("12_cbgmd")
 _wallColor = Color(0.4, 0.4, 0.4, 1)
-_roadTypeColors = Array[Color]([Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0.8, 0.8, 0.8, 1), Color(0.603922, 0.603922, 0.603922, 1), Color(0.4, 0.4, 0.4, 1), Color(0.2, 0.2, 0.2, 1), Color(1, 0, 0, 1)])
+_roadTypeColors = Array[Color]([Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0.8, 0.8, 0.8, 1), Color(0.603922, 0.603922, 0.603922, 1), Color(0.4, 0.4, 0.4, 1), Color(0.2, 0.2, 0.2, 1)])
 
 [node name="SpriteHandler" type="Node2D" parent="."]
 script = ExtResource("7_wmybs")
@@ -1249,23 +1249,20 @@ offset_bottom = 403.0
 scale = Vector2(0.155, 0.155)
 texture = ExtResource("26_1w6v2")
 
-[node name="LapReader" type="Node2D" parent="." node_paths=PackedStringArray("lap_sprites")]
+[node name="LapReader" type="Node2D" parent="."]
 script = ExtResource("29_7k868")
-lap_sprites = [NodePath("1"), NodePath("2"), NodePath("3")]
 
 [node name="1" type="Sprite2D" parent="LapReader"]
 position = Vector2(88, 42)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("27_ueoa1")
 
 [node name="2" type="Sprite2D" parent="LapReader"]
-visible = false
 position = Vector2(88, 42)
-scale = Vector2(0.54, 0.54)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("29_hpc6h")
 
 [node name="3" type="Sprite2D" parent="LapReader"]
-visible = false
 position = Vector2(88, 42)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("28_6vcvc")
@@ -1281,5 +1278,3 @@ top_level = true
 position = Vector2(158, 42)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("28_6vcvc")
-
-[node name="PathLine" type="Line2D" parent="LapReader"]
