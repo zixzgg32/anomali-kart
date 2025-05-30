@@ -1,8 +1,9 @@
-[gd_scene load_steps=40 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=41 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
 [ext_resource type="Script" uid="uid://dxo1wux5bj8wx" path="res://Scripts/On Screen Elements/BackgroundEffects.gd" id="2_330he"]
+[ext_resource type="PackedScene" uid="uid://dc5fmpgrbxbp0" path="res://Scenes/Bot.tscn" id="2_e08e2"]
 [ext_resource type="Shader" uid="uid://dcbeqwnm716yv" path="res://Scripts/Shaders/ModeSeven.gdshader" id="3_okd74"]
 [ext_resource type="Texture2D" uid="uid://b2p41drytlkxt" path="res://Textures/Tracks/Donut Plains 1 - Tree Line.png" id="3_vt36i"]
 [ext_resource type="Script" uid="uid://b1bl5wnf8vttq" path="res://Scripts/World Elements/Pseudo3D.gd" id="4_s71t4"]
@@ -845,6 +846,8 @@ _spriteHandler = NodePath("SpriteHandler")
 _animationHandler = NodePath("SpriteHandler/Animation Handler")
 _backgroundElements = NodePath("BackgroundElements")
 bgm_player = NodePath("AudioStreamPlayer")
+ai_scene = ExtResource("2_e08e2")
+ai_start_positions = [[Vector3(370, 0, 400), Vector3(390, 0, 420), Vector3(370, 0, 440)], [Vector3(426, 0, 640), Vector3(446, 0, 660), Vector3(430, 0, 635)], [Vector3(100, 0, 290), Vector3(120, 0, 300), Vector3(110, 0, 280)], [Vector3(474, 0, 651), Vector3(490, 0, 670), Vector3(480, 0, 640)]]
 
 [node name="BackgroundElements" type="Node2D" parent="." node_paths=PackedStringArray("_skyLine", "_treeLine")]
 script = ExtResource("2_330he")
@@ -960,6 +963,66 @@ region_enabled = true
 region_rect = Rect2(16, 0, 16, 8)
 
 [node name="Left Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Player/Road Type Effects"]
+texture_filter = 1
+position = Vector2(-75, 50)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(8, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 8)
+
+[node name="Bot" type="Node2D" parent="SpriteHandler/Racers"]
+visible = false
+position = Vector2(-3.05176e-05, 0)
+
+[node name="GFX" type="Sprite2D" parent="SpriteHandler/Racers/Bot"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("14_b3802")
+region_enabled = true
+region_rect = Rect2(10, 4, 53, 53)
+region_filter_clip_enabled = true
+
+[node name="Road Type Effects" type="Node2D" parent="SpriteHandler/Racers/Bot"]
+visible = false
+
+[node name="Effects Player" type="AnimationPlayer" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+libraries = {
+&"": SubResource("AnimationLibrary_2e3ut")
+}
+
+[node name="Right Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(48, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(-8, 0)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 8)
+
+[node name="Right Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(75, 50)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(-8, 0)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 8)
+
+[node name="Left Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(-48, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(8, 0)
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 8)
+
+[node name="Left Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
 texture_filter = 1
 position = Vector2(-75, 50)
 scale = Vector2(3, 3)

@@ -15,11 +15,9 @@ func _ready():
 		push_error("No player found in group!")
 	
 	update_lap_display(0)
-
 func _on_lap_completed(lap_count):
 	print("Lap updated: ", lap_count)
 	update_lap_display(lap_count)
-
 func update_lap_display(lap_count):
 	for i in range(lap_sprites.size()):
 		if lap_sprites[i] and is_instance_valid(lap_sprites[i]):

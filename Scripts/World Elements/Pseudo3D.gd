@@ -10,11 +10,23 @@ extends Sprite2D
 var _mapRotSpeed : float
 var _currRotDir = 0
 
+
 @export_category("Map Settings : Position")
 @export var _mapVerticalPosition : float
 var _mapPosition : Vector3
 var _mapRotationAngle : Vector2
 var _finalMatrix : Basis
+
+#@export_category("Rubber Band Settings")
+#@export var min_scale_distance : float = 10.0  
+#@export var max_scale_distance : float = 50.0 
+#@export var min_scale : float = 0.5          
+#@export var max_scale : float = 1.2         
+
+#var _player : Racer
+#var _ai_racers := []
+
+
 
 func Setup(screenSize : Vector2, player : Racer):
 	scale = screenSize / texture.get_size().x
@@ -23,11 +35,15 @@ func Setup(screenSize : Vector2, player : Racer):
 	KeepRotationDistance(player)
 	UpdateShader()
 
+#func AddAIRacer(ai_racer: Racer):
+	#_ai_racers.append(ai_racer)
+
 func Update(player : Racer):
 	RotateMap(player.ReturnPlayerInput().x, player.ReturnMovementSpeed())
 	KeepRotationDistance(player)
 	UpdateShader()
 
+	#_update_racer_scales()
 func RotateMap(rotDir : int, speed : float):
 	if(rotDir != 0 and abs(speed) > 0): AccelMapRotation(rotDir)
 	else: DeaccelMapRotation()
@@ -36,7 +52,33 @@ func RotateMap(rotDir : int, speed : float):
 		var incrementAngle : float = _currRotDir * _mapRotSpeed * get_process_delta_time()
 		_mapRotationAngle.y += incrementAngle
 		_mapRotationAngle.y = WrapAngle(_mapRotationAngle.y)
-
+#func _update_racer_scales():
+	#if not _player:
+		#return
+	#
+	#var player_pos := Vector2(_player.ReturnMapPosition().x, _player.ReturnMapPosition().z)
+	#
+	#for ai: Node in _ai_racers:
+		#if not is_instance_valid(ai):
+			#continue
+			#
+		#var ai_pos := Vector2(ai.ReturnMapPosition().x, ai.ReturnMapPosition().z)
+		#var distance: float = player_pos.distance_to(ai_pos)
+		#
+		## Calculate scale based on distance (inverse relationship)
+		#var t: float = inverse_lerp(min_scale_distance, max_scale_distance, distance)
+		#t = clamp(t, 0.0, 1.0)
+		#var target_scale: float = lerp(max_scale, min_scale, t)
+		#
+		## Apply scale to AI's sprite
+		#var sprite_gfx: Node = ai.get_node("SpriteGFX")
+		#if sprite_gfx:
+			#sprite_gfx.scale = Vector2(target_scale, target_scale)
+		#
+		## Optional: Also adjust speed based on distance (rubber band AI)
+		#if ai.has_method("set_rubber_band_speed"):
+			#var speed_factor: float = lerp(1.3, 0.7, t)  # Faster when far, slower when close
+			#ai.set_rubber_band_speed(speed_factor)
 func AccelMapRotation(rotDir : int):
 	if(rotDir != _currRotDir and _mapRotSpeed > 0):
 		DeaccelMapRotation()

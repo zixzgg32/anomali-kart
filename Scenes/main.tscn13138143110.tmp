@@ -1,8 +1,43 @@
-[gd_scene load_steps=11 format=3 uid="uid://dc5fmpgrbxbp0"]
+[gd_scene load_steps=41 format=3 uid="uid://d2glnv32t8md1"]
 
-[ext_resource type="Script" uid="uid://dap7u2al8vbm0" path="res://Scripts/World Elements/Racers/Bot2D.gd" id="1_2mbih"]
-[ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="2_8xsmr"]
-[ext_resource type="Texture2D" uid="uid://dwtfoow25238t" path="res://Textures/Racers/Particles/Road_Type_Effects_Sheet.png" id="3_4dvix"]
+[ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
+[ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
+[ext_resource type="Script" uid="uid://dxo1wux5bj8wx" path="res://Scripts/On Screen Elements/BackgroundEffects.gd" id="2_330he"]
+[ext_resource type="Shader" uid="uid://dcbeqwnm716yv" path="res://Scripts/Shaders/ModeSeven.gdshader" id="3_okd74"]
+[ext_resource type="Texture2D" uid="uid://b2p41drytlkxt" path="res://Textures/Tracks/Donut Plains 1 - Tree Line.png" id="3_vt36i"]
+[ext_resource type="Script" uid="uid://b1bl5wnf8vttq" path="res://Scripts/World Elements/Pseudo3D.gd" id="4_s71t4"]
+[ext_resource type="Texture2D" uid="uid://8q1ttsmdd8vr" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/background_stage1.png" id="4_u50mg"]
+[ext_resource type="Texture2D" uid="uid://60luu68tdgkn" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Flag (2).png" id="6_gt3je"]
+[ext_resource type="Script" uid="uid://csptjyivkvl3h" path="res://Scripts/General/Collision.gd" id="6_q57ja"]
+[ext_resource type="Texture2D" uid="uid://co5k8mojq65co" path="res://Textures/Texture/Sand.png" id="7_3pmx8"]
+[ext_resource type="Script" uid="uid://dqs3p6n34ligd" path="res://Scripts/On Screen Elements/SpriteHandler.gd" id="7_wmybs"]
+[ext_resource type="Script" uid="uid://b30wiesbyfgrw" path="res://Scripts/World Elements/Racers/Player.gd" id="8_lejxo"]
+[ext_resource type="Texture2D" uid="uid://do4l3t6fepcy8" path="res://Textures/Tracks/Donut Plains 1.png" id="8_u50mg"]
+[ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="10_1w6v2"]
+[ext_resource type="Script" uid="uid://4fv2yvhwf6rr" path="res://Scripts/World Elements/Hazard.gd" id="11_gfs62"]
+[ext_resource type="Texture2D" uid="uid://dwtfoow25238t" path="res://Textures/Racers/Particles/Road_Type_Effects_Sheet.png" id="11_w61pk"]
+[ext_resource type="Texture2D" uid="uid://2e4keavisgx7" path="res://Textures/Tracks/raceColl1.png" id="12_hpc6h"]
+[ext_resource type="Script" uid="uid://bfboerckacjb" path="res://Scripts/General/AnimationHandler.gd" id="13_6hxns"]
+[ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="14_b3802"]
+[ext_resource type="Texture2D" uid="uid://d1nvgl514d4vw" path="res://Textures/Hazards/Orange_Pipes.png" id="16_t3snl"]
+[ext_resource type="Script" uid="uid://dap7u2al8vbm0" path="res://Scripts/World Elements/Racers/Bot2D.gd" id="17_kltya"]
+[ext_resource type="Script" uid="uid://uig64etelmq3" path="res://Scripts/General/speedometer.gd" id="19_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://bttwprgr0f08i" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar bg.png" id="21_3pmx8"]
+[ext_resource type="Texture2D" uid="uid://ca3euxgb1iclq" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar.png" id="22_u50mg"]
+[ext_resource type="AudioStream" uid="uid://c2djqrutm24bd" path="res://Asset/sound/music/music/racing3.mp3" id="24_3pmx8"]
+[ext_resource type="Script" uid="uid://c3w376pn1bx18" path="res://Scripts/On Screen Elements/mini_map.gd" id="25_cbgmd"]
+[ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="26_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://cqa2l8njfgefm" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/1 (1).png" id="27_ueoa1"]
+[ext_resource type="Texture2D" uid="uid://bqg387qc6bqtb" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/countdown.png" id="28_6vcvc"]
+[ext_resource type="Texture2D" uid="uid://ce1edabous14y" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/slash.png" id="29_6vcvc"]
+[ext_resource type="Script" uid="uid://by6ct4cqh0760" path="res://Scripts/General/lap_reader.gd" id="29_7k868"]
+[ext_resource type="Texture2D" uid="uid://6wlp26afgbs8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/2 (1).png" id="29_hpc6h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lhngl"]
+shader = ExtResource("3_okd74")
+shader_parameter/trackTexture = ExtResource("10_1w6v2")
+shader_parameter/grassTexture = ExtResource("7_3pmx8")
+shader_parameter/mapMatrix = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_65qb5"]
 resource_name = "Driving_Off_Road_Anim"
@@ -802,63 +837,516 @@ _data = {
 &"Sink_Splash_Anim": SubResource("Animation_37x3c")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("_map", "_collision", "_player", "_bot", "_spriteHandler", "_animationHandler", "_backgroundElements", "bgm_player")]
+script = ExtResource("1_emb0w")
+_map = NodePath("Map")
+_collision = NodePath("Map/CollisionHandler")
+_player = NodePath("SpriteHandler/Racers/Player")
+_bot = NodePath("SpriteHandler/Racers/Bot")
+_spriteHandler = NodePath("SpriteHandler")
+_animationHandler = NodePath("SpriteHandler/Animation Handler")
+_backgroundElements = NodePath("BackgroundElements")
+bgm_player = NodePath("AudioStreamPlayer")
 
-[node name="Bot" type="Node2D" parent="."]
-position = Vector2(-3.05176e-05, 0)
-script = ExtResource("1_2mbih")
+[node name="BackgroundElements" type="Node2D" parent="." node_paths=PackedStringArray("_skyLine", "_treeLine")]
+script = ExtResource("2_330he")
+_skyLine = NodePath("SkyLine")
+_treeLine = NodePath("Tree Line")
 
-[node name="GFX" type="Sprite2D" parent="Bot"]
+[node name="Background" type="Sprite2D" parent="BackgroundElements"]
+z_index = -1
+position = Vector2(321.5, 180)
+scale = Vector2(20.0938, 11.25)
+texture = ExtResource("1_5044a")
+
+[node name="SkyLine" type="Sprite2D" parent="BackgroundElements"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, 48)
+scale = Vector2(2.67083, 2)
+texture = ExtResource("4_u50mg")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="Tree Line" type="Sprite2D" parent="BackgroundElements"]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, 48)
+scale = Vector2(2.675, 2)
+texture = ExtResource("3_vt36i")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 32)
+
+[node name="Map" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+material = SubResource("ShaderMaterial_lhngl")
+position = Vector2(321, 180)
+scale = Vector2(0.626953, 0.351563)
+texture = ExtResource("8_u50mg")
+script = ExtResource("4_s71t4")
+_mapStartRotationAngle = Vector2(4.9, 4.8)
+_mapMaxRotationSpeed = 1.5
+_mapAccelRotationSpeed = 2.0
+_mapDeaccelRotationSpeed = 3.0
+_rotationRadius = 36.0
+_mapVerticalPosition = 3.8
+min_scale_distance = null
+max_scale_distance = null
+min_scale = null
+max_scale = null
+
+[node name="CollisionHandler" type="Node" parent="Map"]
+script = ExtResource("6_q57ja")
+_collisionMap = ExtResource("12_hpc6h")
+_wallColor = Color(0.4, 0.4, 0.4, 1)
+_roadTypeColors = Array[Color]([Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0.8, 0.8, 0.8, 1), Color(0.603922, 0.603922, 0.603922, 1), Color(0.4, 0.4, 0.4, 1), Color(0.2, 0.2, 0.2, 1), Color(1, 0, 0, 1)])
+
+[node name="SpriteHandler" type="Node2D" parent="."]
+script = ExtResource("7_wmybs")
+
+[node name="Racers" type="Node2D" parent="SpriteHandler"]
+
+[node name="Player" type="Node2D" parent="SpriteHandler/Racers" node_paths=PackedStringArray("_collisionHandler", "_spriteGFX")]
+position = Vector2(-1.52588e-05, 0)
+script = ExtResource("8_lejxo")
+_movementDeaccel = 160.0
+_collisionHandler = NodePath("../../../Map/CollisionHandler")
+_spriteGFX = NodePath("GFX")
+_mapPosition = Vector3(410.02, 0, 635.945)
+
+[node name="GFX" type="Sprite2D" parent="SpriteHandler/Racers/Player"]
 z_as_relative = false
 texture_filter = 1
 scale = Vector2(2, 2)
-texture = ExtResource("2_8xsmr")
+texture = ExtResource("14_b3802")
 region_enabled = true
 region_rect = Rect2(10, 4, 53, 53)
 region_filter_clip_enabled = true
 
-[node name="Road Type Effects" type="Node2D" parent="Bot"]
+[node name="Road Type Effects" type="Node2D" parent="SpriteHandler/Racers/Player"]
 visible = false
 
-[node name="Effects Player" type="AnimationPlayer" parent="Bot/Road Type Effects"]
+[node name="Effects Player" type="AnimationPlayer" parent="SpriteHandler/Racers/Player/Road Type Effects"]
 libraries = {
 &"": SubResource("AnimationLibrary_2e3ut")
 }
 
-[node name="Right Wheel" type="Sprite2D" parent="Bot/Road Type Effects"]
+[node name="Right Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Player/Road Type Effects"]
 texture_filter = 1
 position = Vector2(48, 40)
 scale = Vector2(3, 3)
-texture = ExtResource("3_4dvix")
+texture = ExtResource("11_w61pk")
 offset = Vector2(-8, 0)
 flip_h = true
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 8)
 
-[node name="Right Wheel Special" type="Sprite2D" parent="Bot/Road Type Effects"]
+[node name="Right Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Player/Road Type Effects"]
 texture_filter = 1
 position = Vector2(75, 50)
 scale = Vector2(3, 3)
-texture = ExtResource("3_4dvix")
+texture = ExtResource("11_w61pk")
 offset = Vector2(-8, 0)
 flip_h = true
 region_enabled = true
 region_rect = Rect2(48, 0, 16, 8)
 
-[node name="Left Wheel" type="Sprite2D" parent="Bot/Road Type Effects"]
+[node name="Left Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Player/Road Type Effects"]
 texture_filter = 1
 position = Vector2(-48, 40)
 scale = Vector2(3, 3)
-texture = ExtResource("3_4dvix")
+texture = ExtResource("11_w61pk")
 offset = Vector2(8, 0)
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 8)
 
-[node name="Left Wheel Special" type="Sprite2D" parent="Bot/Road Type Effects"]
+[node name="Left Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Player/Road Type Effects"]
 texture_filter = 1
 position = Vector2(-75, 50)
 scale = Vector2(3, 3)
-texture = ExtResource("3_4dvix")
+texture = ExtResource("11_w61pk")
 offset = Vector2(8, 0)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 8)
+
+[node name="Bot" type="Node2D" parent="SpriteHandler/Racers" node_paths=PackedStringArray("_collisionHandler", "_spriteGFX")]
+position = Vector2(-3.05176e-05, 0)
+script = ExtResource("17_kltya")
+_collisionHandler = NodePath("../../../Map/CollisionHandler")
+_spriteGFX = NodePath("GFX")
+
+[node name="GFX" type="Sprite2D" parent="SpriteHandler/Racers/Bot"]
+z_as_relative = false
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("14_b3802")
+region_enabled = true
+region_rect = Rect2(10, 4, 53, 53)
+region_filter_clip_enabled = true
+
+[node name="Road Type Effects" type="Node2D" parent="SpriteHandler/Racers/Bot"]
+visible = false
+
+[node name="Effects Player" type="AnimationPlayer" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+libraries = {
+&"": SubResource("AnimationLibrary_2e3ut")
+}
+
+[node name="Right Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(48, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(-8, 0)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 8)
+
+[node name="Right Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(75, 50)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(-8, 0)
+flip_h = true
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 8)
+
+[node name="Left Wheel" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(-48, 40)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(8, 0)
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 8)
+
+[node name="Left Wheel Special" type="Sprite2D" parent="SpriteHandler/Racers/Bot/Road Type Effects"]
+texture_filter = 1
+position = Vector2(-75, 50)
+scale = Vector2(3, 3)
+texture = ExtResource("11_w61pk")
+offset = Vector2(8, 0)
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 8)
+
+[node name="Hazards" type="Node2D" parent="SpriteHandler"]
+visible = false
+
+[node name="Bridge" type="Node2D" parent="SpriteHandler/Hazards"]
+
+[node name="Green Pipe" type="Sprite2D" parent="SpriteHandler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-117, -177)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(400, 0, 64)
+
+[node name="Green Pipe2" type="Sprite2D" parent="SpriteHandler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-114, -142)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(400, 0, 144)
+
+[node name="Green Pipe3" type="Sprite2D" parent="SpriteHandler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-126, -161)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(616, 0, 64)
+
+[node name="Green Pipe4" type="Sprite2D" parent="SpriteHandler/Hazards/Bridge" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-92, -138)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(616, 0, 144)
+
+[node name="Shortcut" type="Node2D" parent="SpriteHandler/Hazards"]
+
+[node name="Green Pipe" type="Sprite2D" parent="SpriteHandler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-114, -145)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(744, 0, 416)
+
+[node name="Green Pipe2" type="Sprite2D" parent="SpriteHandler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-121, -148)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(744, 0, 552)
+
+[node name="Green Pipe3" type="Sprite2D" parent="SpriteHandler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-121, -142)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(848, 0, 464)
+
+[node name="Green Pipe4" type="Sprite2D" parent="SpriteHandler/Hazards/Shortcut" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-122, -137)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(848, 0, 528)
+
+[node name="Lake" type="Node2D" parent="SpriteHandler/Hazards"]
+
+[node name="Green Pipe" type="Sprite2D" parent="SpriteHandler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-108, -138)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(552, 0, 336)
+
+[node name="Green Pipe2" type="Sprite2D" parent="SpriteHandler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-100, -128)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(464, 0, 432)
+
+[node name="Green Pipe3" type="Sprite2D" parent="SpriteHandler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-102, -131)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(464, 0, 304)
+
+[node name="Green Pipe4" type="Sprite2D" parent="SpriteHandler/Hazards/Lake" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-122, -127)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(336, 0, 336)
+
+[node name="Last Turn" type="Node2D" parent="SpriteHandler/Hazards"]
+
+[node name="Green Pipe" type="Sprite2D" parent="SpriteHandler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-109, -133)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(216, 0, 1008)
+
+[node name="Green Pipe2" type="Sprite2D" parent="SpriteHandler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-119, -133)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(136, 0, 976)
+
+[node name="Green Pipe3" type="Sprite2D" parent="SpriteHandler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-119, -133)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(88, 0, 904)
+
+[node name="Green Pipe4" type="Sprite2D" parent="SpriteHandler/Hazards/Last Turn" node_paths=PackedStringArray("_spriteGFX")]
+texture_filter = 1
+position = Vector2(-107, -129)
+scale = Vector2(3, 3)
+texture = ExtResource("16_t3snl")
+region_enabled = true
+region_rect = Rect2(0, 0, 24, 32)
+script = ExtResource("11_gfs62")
+_totalDetailStates = 11
+_spriteGFX = NodePath(".")
+_mapPosition = Vector3(64, 0, 816)
+
+[node name="Animation Handler" type="Node" parent="SpriteHandler" node_paths=PackedStringArray("_effectsPlayer", "_specialWheelEffect")]
+script = ExtResource("13_6hxns")
+_effectsPlayer = NodePath("../Racers/Player/Road Type Effects/Effects Player")
+_specialWheelEffect = [NodePath("../Racers/Player/Road Type Effects/Right Wheel Special"), NodePath("../Racers/Player/Road Type Effects/Left Wheel Special")]
+
+[node name="Speedometer2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("19_ee4r6")
+
+[node name="SpeedBar" type="TextureProgressBar" parent="Speedometer2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -30.0
+offset_right = -13.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+fill_mode = 1
+texture_under = ExtResource("21_3pmx8")
+texture_progress = ExtResource("22_u50mg")
+
+[node name="NameLabel" type="Label" parent="Speedometer2"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -52.0
+offset_right = -13.0
+offset_bottom = -29.0
+horizontal_alignment = 2
+
+[node name="LapFLag" type="Sprite2D" parent="."]
+position = Vector2(40, 45)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_gt3je")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_3pmx8")
+autoplay = true
+
+[node name="mini_map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("25_cbgmd")
+
+[node name="Map" type="TextureRect" parent="mini_map"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 1026.0
+offset_bottom = 1285.0
+grow_horizontal = 2
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("10_1w6v2")
+
+[node name="Icon" type="TextureRect" parent="mini_map"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 130.0
+offset_bottom = 403.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("26_1w6v2")
+
+[node name="LapReader" type="Node2D" parent="." node_paths=PackedStringArray("lap_sprites")]
+script = ExtResource("29_7k868")
+lap_sprites = [NodePath("1"), NodePath("2"), NodePath("3")]
+
+[node name="1" type="Sprite2D" parent="LapReader"]
+position = Vector2(88, 42)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_ueoa1")
+
+[node name="2" type="Sprite2D" parent="LapReader"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("29_hpc6h")
+
+[node name="3" type="Sprite2D" parent="LapReader"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("28_6vcvc")
+
+[node name="Slash" type="Sprite2D" parent="LapReader"]
+top_level = true
+position = Vector2(121, 41)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("29_6vcvc")
+
+[node name="MaxLap" type="Sprite2D" parent="LapReader"]
+top_level = true
+position = Vector2(158, 42)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("28_6vcvc")
+
+[node name="PathLine" type="Line2D" parent="LapReader"]

@@ -9,6 +9,10 @@ var current_lap := 0
 var is_on_lap_reader := false
 var last_lap_position := Vector2i.ZERO
 var lap_check_cooldown := 0.0
+var last_checkpoint_position: Vector2i
+var has_passed_checkpoint: bool = false
+var required_checkpoint: Vector2i 
+var last_direction: Vector2i = Vector2i.ZERO
 const LAP_COOLDOWN_TIME := 0.5 
 
 func set_character_sprite(texture: Texture2D):
@@ -54,36 +58,26 @@ func Update(mapForward : Vector3):
 
 func UpdateLapCount(current_position: Vector2i):
 	var current_road_type = _collisionHandler.ReturnCurrentRoadType(current_position)
-	
-	if current_road_type == Globals.RoadType.LAP_READER:
-		if lap_check_cooldown <= 0 and !is_on_lap_reader:
-			# More reliable detection using position history
-			var moved_forward = _has_moved_forward(current_position)
-			
-			if moved_forward:
-				current_lap += 1
-				emit_signal("lap_completed", current_lap)
-				print("Lap completed! Current lap: ", current_lap)
-				lap_check_cooldown = LAP_COOLDOWN_TIME
-				
-			is_on_lap_reader = true
-	else:
-		is_on_lap_reader = false
+	if current_road_type == Globals.RoadType.LAP_READER && !is_on_lap_reader:
+		if lap_check_cooldown <= 0:
+			current_lap += 1
+			emit_signal("lap_completed", current_lap)
+			print("Lap completed! Current lap: ", current_lap)
+			lap_check_cooldown = LAP_COOLDOWN_TIME
+	is_on_lap_reader = (current_road_type == Globals.RoadType.LAP_READER)
+	if lap_check_cooldown > 0:
 		lap_check_cooldown -= get_process_delta_time()
-	
 	last_lap_position = current_position
 	
-	last_lap_position = current_position
-	
-func _has_moved_forward(current_pos: Vector2i) -> bool:
-	var movement_vector = current_pos - last_lap_position
-	if movement_vector.length() < 2:  
-		return false
-	if abs(movement_vector.y) > abs(movement_vector.x):  
-		return movement_vector.y > 0 
-	else:  
-		return movement_vector.x > 0  
-	return true  
+#func _has_moved_forward(current_pos: Vector2i) -> bool:
+	#var movement_vector = current_pos - last_lap_position
+	#if movement_vector.length() < 2:  
+		#return false
+	#if abs(movement_vector.y) > abs(movement_vector.x):  
+		#return movement_vector.y > 0 
+	#else:  
+		#return movement_vector.x > 0  
+	#return true  
 func ReturnPlayerInput() -> Vector2:
 	_inputDir.x = Input.get_action_strength("Left") - Input.get_action_strength("Right")
 	_inputDir.y = Input.get_action_strength("Backward") - Input.get_action_strength("Forward")

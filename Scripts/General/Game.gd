@@ -7,7 +7,7 @@ extends Node2D
 @export var _animationHandler : Node
 @export var _backgroundElements : Node2D
 @export var bgm_player : AudioStreamPlayer 
-
+var _mapPosition: Vector3
 var character_textures := [
 	"res://Asset/Sprites/ballerina (2).png",
 	"res://Asset/Sprites/Anomali cappucino assasion (1).png",
@@ -74,6 +74,16 @@ var mapStartRotationAngle := [
 	Vector2(4.9, 3.15),
 	Vector2(4.9, 4.7)
 ]
+var ai_racers := []
+@export var ai_scene : PackedScene
+@export var ai_count := 3
+@export var ai_start_positions := [
+	[Vector3(360, 0, 400), Vector3(390, 0, 420), Vector3(370, 0, 440)],
+	[Vector3(426, 0, 640), Vector3(446, 0, 660), Vector3(430, 0, 635)],
+	[Vector3(100, 0, 290), Vector3(120, 0, 300), Vector3(110, 0, 280)],
+	[Vector3(474, 0, 651), Vector3(490, 0, 670), Vector3(480, 0, 640)]
+]
+
 
 func _ready():
 	var selected_index = Globals.selected_character_index
@@ -115,7 +125,7 @@ func _ready():
 	var material = $Map.material
 	material.set_shader_parameter("trackTexture", track)
 	material.set_shader_parameter("grassTexture", tile)
-	
+	#_create_ai_racers(selected_index2)
 	var collision_node = $Map/CollisionHandler  
 	collision_node._collisionMap = collision
 	if collision_node.has_method("process_collision_data"):
@@ -133,10 +143,43 @@ func _ready():
 	bgm_player.autoplay = true
 	bgm_player.play()
 	
-
+#func _create_ai_racers(track_index: int):
+	#if not ai_scene:
+		#push_error("AI scene not assigned!")
+		#return
+	#
+	## Clear existing AI racers
+	#for ai in ai_racers:
+		#if is_instance_valid(ai):
+			#ai.queue_free()
+	#ai_racers.clear()
+	#
+	## Create new AI racers
+	#for i in range(min(ai_count, ai_start_positions[track_index].size())):
+		#var ai = ai_scene.instantiate()
+		#$SpriteHandler/Racers.add_child(ai)
+		#
+		## Set AI position
+		#var start_pos = ai_start_positions[track_index][i]
+		#ai._mapPosition = start_pos
+		#ai.position = Vector2(start_pos.x, start_pos.z)
+		#
+		## Setup AI
+		#ai.Setup(_map.texture.get_size().x)
+		#ai.set_character_sprite(load(character_textures[i % character_textures.size()]))
+		#ai.set_difficulty(lerp(0.5, 1.0, float(i)/ai_count))  # Varying difficulty
+		#
+		## Add to tracking arrays
+		#ai_racers.append(ai)
+		#_map.AddAIRacer(ai)
+		
 func _process(_delta):
 	_map.Update(_player)
 	_player.Update(_map.ReturnForward())
 	_spriteHandler.Update(_map.ReturnWorldMatrix())
 	_animationHandler.Update()
 	_backgroundElements.Update(_map.ReturnMapRotation())
+	
+	#for ai in ai_racers:
+		#if is_instance_valid(ai):
+			#ai.Update(_map.ReturnForward())
