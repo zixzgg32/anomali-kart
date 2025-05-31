@@ -114,3 +114,5 @@ theme_type_variation = &"FlatButton"
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_2e6au")
 icon = ExtResource("9_2e6au")
 flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

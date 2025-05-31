@@ -70,9 +70,16 @@ func _on_multiplayer_pressed():
 
 func _on_settings_pressed():
 	play_click_sound()
-	print("Settings button pressed")
-	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
+	print("Loading settings scene...")
+	var scene = load("res://Scenes/tester.tscn")
+	if scene:
+		print("Scene loaded successfully")
+		stop_bgm()
+		await get_tree().create_timer(0.2).timeout
+		get_tree().change_scene_to_packed(scene)
+	else:
+		print("Failed to load scene")
+
 
 func _on_exit_pressed():
 	play_click_sound()

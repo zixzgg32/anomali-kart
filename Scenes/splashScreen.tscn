@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://mmv1fxvhkkt1"]
+[gd_scene load_steps=5 format=3 uid="uid://mmv1fxvhkkt1"]
 
 [ext_resource type="Script" uid="uid://2ur1mig238gs" path="res://Scenes/script/splash_screen.gd" id="1_k01gv"]
 [ext_resource type="Texture2D" uid="uid://iupequbjfv5u" path="res://Asset/Logo/logo kelompok.png" id="1_x23i4"]
 [ext_resource type="PackedScene" uid="uid://b3d35btncsjck" path="res://Scenes/story.tscn" id="2_k01gv"]
+[ext_resource type="Texture2D" uid="uid://2nweuar6fjg5" path="res://Asset/Logo/age_restriction.png" id="4_35v18"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k01gv")
 next_scene = ExtResource("2_k01gv")
+texture_rect = NodePath("CenterContainer/TextureRect")
+textures = Array[Texture2D]([ExtResource("1_x23i4"), ExtResource("4_35v18")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

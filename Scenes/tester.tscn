@@ -1,0 +1,191 @@
+[gd_scene load_steps=11 format=3 uid="uid://d1sre63xe4v5s"]
+
+[ext_resource type="Script" uid="uid://d2djow2ka11qs" path="res://Scenes/script/settings.gd" id="1_v7487"]
+[ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="2_n0b0d"]
+[ext_resource type="AudioStream" uid="uid://uulkby0e83tq" path="res://Asset/sound/music/music/mainmenu1.mp3" id="3_5n2qc"]
+[ext_resource type="Texture2D" uid="uid://hrd5w4rb7h7o" path="res://Asset/background/background menu.png" id="4_1kgwp"]
+[ext_resource type="Texture2D" uid="uid://dpvk03m77sln1" path="res://Asset/Logo/anomalikart pixel.png" id="5_bmci8"]
+[ext_resource type="Theme" uid="uid://dt4yxd8p8sbj8" path="res://Asset/Theme/button.tres" id="6_7d0fx"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="7_csjfd"]
+[ext_resource type="Texture2D" uid="uid://bsqlybe6k8j0" path="res://arrow-left-svgrepo-com (4).svg" id="8_lub0v"]
+
+[sub_resource type="Theme" id="Theme_v7487"]
+
+[sub_resource type="Theme" id="Theme_n0b0d"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v7487")
+click_sound = ExtResource("2_n0b0d")
+bgm = ExtResource("3_5n2qc")
+
+[node name="background" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(321, 212)
+scale = Vector2(0.426758, 0.426758)
+texture = ExtResource("4_1kgwp")
+
+[node name="logo" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(319, 95)
+scale = Vector2(0.175781, 0.175781)
+texture = ExtResource("5_bmci8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 18.0
+offset_right = 63.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Single Player" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_7d0fx")
+text = "1 Player"
+
+[node name="Multiplayer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_7d0fx")
+text = "2 Player"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_7d0fx")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_7d0fx")
+text = "Exit"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 182.0
+offset_top = 178.0
+offset_right = -182.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_v7487")
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 270.0
+offset_top = 188.0
+offset_right = 377.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("7_csjfd")
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 219.0
+offset_top = 236.0
+offset_right = 255.0
+offset_bottom = 264.0
+theme_override_fonts/font = ExtResource("7_csjfd")
+theme_override_font_sizes/font_size = 14
+text = "BGM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 226.0
+offset_top = 257.0
+offset_right = 249.0
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("7_csjfd")
+theme_override_font_sizes/font_size = 14
+text = "SE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BGMLabel" type="Label" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 395.0
+offset_top = 242.0
+offset_right = 412.0
+offset_bottom = 257.0
+theme_override_fonts/font = ExtResource("7_csjfd")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SELabel" type="Label" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 395.0
+offset_top = 261.0
+offset_right = 412.0
+offset_bottom = 276.0
+theme_override_fonts/font = ExtResource("7_csjfd")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+top_level = true
+position = Vector2(206, 198)
+scale = Vector2(0.023125, 0.02375)
+texture = ExtResource("8_lub0v")
+
+[node name="Button" type="Button" parent="ColorRect"]
+top_level = true
+layout_mode = 0
+offset_left = 198.0
+offset_top = 192.0
+offset_right = 216.0
+offset_bottom = 206.0
+flat = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+top_level = true
+clip_contents = true
+layout_mode = 0
+offset_left = 260.0
+offset_top = 239.0
+offset_right = 385.0
+offset_bottom = 276.0
+
+[node name="BGMSlider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+value = 30.0
+
+[node name="SESlider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+theme = SubResource("Theme_n0b0d")
+value = 30.0

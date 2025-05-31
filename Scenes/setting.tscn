@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=3 uid="uid://b28eosgxfpu60"]
+
+[ext_resource type="Script" uid="uid://d2djow2ka11qs" path="res://Scenes/script/settings.gd" id="1_1pxt3"]
+[ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="2_crjqs"]
+[ext_resource type="AudioStream" uid="uid://uulkby0e83tq" path="res://Asset/sound/music/music/mainmenu1.mp3" id="3_uf64c"]
+[ext_resource type="Texture2D" uid="uid://hrd5w4rb7h7o" path="res://Asset/background/background menu.png" id="4_he87m"]
+[ext_resource type="Texture2D" uid="uid://dpvk03m77sln1" path="res://Asset/Logo/anomalikart pixel.png" id="5_a2n2w"]
+[ext_resource type="Theme" uid="uid://dt4yxd8p8sbj8" path="res://Asset/Theme/button.tres" id="6_efrb6"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="7_crjqs"]
+[ext_resource type="Texture2D" uid="uid://bsqlybe6k8j0" path="res://arrow-left-svgrepo-com (4).svg" id="8_uf64c"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1pxt3")
+click_sound = ExtResource("2_crjqs")
+bgm = ExtResource("3_uf64c")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(321, 212)
+scale = Vector2(0.426758, 0.426758)
+texture = ExtResource("4_he87m")
+
+[node name="logo" type="Sprite2D" parent="."]
+position = Vector2(319, 95)
+scale = Vector2(0.175781, 0.175781)
+texture = ExtResource("5_a2n2w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 18.0
+offset_right = 63.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Single Player" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_efrb6")
+text = "1 Player"
+
+[node name="Multiplayer" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_efrb6")
+text = "2 Player"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_efrb6")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("6_efrb6")
+text = "Exit"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 182.0
+offset_top = 178.0
+offset_right = -182.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 11.0
+offset_right = 194.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("7_crjqs")
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect"]
+offset_left = 40.0
+offset_top = 60.0
+offset_right = 76.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("7_crjqs")
+theme_override_font_sizes/font_size = 14
+text = "BGM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="ColorRect"]
+offset_left = 47.0
+offset_top = 81.0
+offset_right = 70.0
+offset_bottom = 104.0
+theme_override_fonts/font = ExtResource("7_crjqs")
+theme_override_font_sizes/font_size = 14
+text = "SE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="ColorRect"]
+offset_left = 220.0
+offset_top = 66.0
+offset_right = 237.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("7_crjqs")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="ColorRect"]
+offset_left = 220.0
+offset_top = 85.0
+offset_right = 237.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("7_crjqs")
+theme_override_font_sizes/font_size = 14
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+position = Vector2(24, 22)
+scale = Vector2(0.023125, 0.02375)
+texture = ExtResource("8_uf64c")
+
+[node name="Button" type="Button" parent="ColorRect"]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 33.0
+offset_bottom = 29.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+clip_contents = true
+layout_mode = 0
+offset_left = 88.0
+offset_top = 63.0
+offset_right = 210.0
+offset_bottom = 163.0
+
+[node name="BGMSlider" type="HSlider" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+value = 30.0
+
+[node name="SESlider" type="HSlider" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+value = 30.0

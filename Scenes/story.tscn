@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3d35btncsjck"]
+[gd_scene load_steps=15 format=3 uid="uid://b3d35btncsjck"]
 
 [ext_resource type="Script" uid="uid://cgm5c378oikgx" path="res://Scenes/script/story.gd" id="1_g6ewe"]
 [ext_resource type="Texture2D" uid="uid://capj42xlw75i7" path="res://Asset/Story/raja anomali.png" id="2_oj37j"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://d3dxq84cptscw" path="res://Asset/Story/siluet balerina.png" id="10_ecg4a"]
 [ext_resource type="Texture2D" uid="uid://c5bj23gmur64n" path="res://Asset/Story/siluet crocodilo.png" id="11_gjl3m"]
 [ext_resource type="Texture2D" uid="uid://b8vcyocpis3sg" path="res://Asset/Story/siluet tralalero tralala.png" id="12_kd4ob"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="13_2d8gw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2d8gw"]
 
 [node name="Story" type="Control"]
 layout_mode = 3
@@ -115,3 +118,28 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("3_3rk6k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 7.0
+offset_right = 642.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("13_2d8gw")
+text = "ENTER TO SKIP"
+label_settings = SubResource("LabelSettings_2d8gw")
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 475.0
+offset_top = 6.0
+offset_right = 500.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("13_2d8gw")
+theme_override_font_sizes/font_size = 28
+text = ">>"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 171
