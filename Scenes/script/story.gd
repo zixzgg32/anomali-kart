@@ -1,8 +1,8 @@
 extends Control
 
 @export var next_scene: String = "res://Scenes/mainMenu.tscn"
-
-# Tambahkan path sound untuk setiap grup
+@onready var skip_label1 = $SKIP  
+@onready var skip_label2 = $SKIP2
 var scene_groups := [
 	{ "name": "scene1", "sound_path": "res://Asset/sound/scene1fix.mp3" },
 	{ "name": "scene2", "sound_path": "res://Asset/sound/scene2.mp3" },
@@ -12,7 +12,7 @@ var scene_groups := [
 var current_group_index: int = 0
 var current_texture_index: int = 0
 var timer: Timer
-var texture_durations := [] # Akan diisi otomatis
+var texture_durations := [] 
 var audio_player: AudioStreamPlayer
 
 func _ready():
@@ -24,6 +24,10 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("ui_select") or event.is_action_pressed("ui_accept") or (event is InputEventKey and event.keycode == KEY_SPACE):
+		if skip_label1:
+			skip_label1.visible = false
+		if skip_label2:
+			skip_label2.visible = false
 		get_tree().change_scene_to_file(next_scene)
 
 func calculate_texture_durations():
@@ -79,6 +83,10 @@ func _on_texture_timer_timeout():
 		current_group_index += 1
 		current_texture_index = 0
 		if current_group_index >= scene_groups.size():
+			if skip_label1:
+				skip_label1.visible = false
+			if skip_label2:
+				skip_label2.visible = false
 			get_tree().change_scene_to_file(next_scene)
 		else:
 			show_group(current_group_index)
@@ -109,13 +117,11 @@ func show_texture_in_group(group_idx: int, texture_idx: int):
 				texture_rects.append(child)
 		for i in range(texture_rects.size()):
 			if i == texture_idx:
-				# Fade in
 				texture_rects[i].visible = true
 				var tween = create_tween()
 				texture_rects[i].modulate.a = 0.0
 				tween.tween_property(texture_rects[i], "modulate:a", 1.0, 0.5)
 			else:
-				# Fade out
 				if texture_rects[i].visible and texture_rects[i].modulate.a > 0.0:
 					var tween = create_tween()
 					tween.tween_property(texture_rects[i], "modulate:a", 0.0, 0.5)

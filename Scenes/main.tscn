@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=42 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://ce1edabous14y" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/slash.png" id="29_6vcvc"]
 [ext_resource type="Script" uid="uid://by6ct4cqh0760" path="res://Scripts/General/lap_reader.gd" id="29_7k868"]
 [ext_resource type="Texture2D" uid="uid://6wlp26afgbs8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/2 (1).png" id="29_hpc6h"]
-[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="34_neg2b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lhngl"]
 shader = ExtResource("3_okd74")
@@ -839,8 +838,6 @@ _data = {
 &"Sink_Splash_Anim": SubResource("Animation_37x3c")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_r33sp"]
-
 [node name="Main" type="Node2D" node_paths=PackedStringArray("_map", "_collision", "_player", "_spriteHandler", "_animationHandler", "_backgroundElements", "bgm_player")]
 script = ExtResource("1_emb0w")
 _map = NodePath("Map")
@@ -1341,15 +1338,3 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("28_6vcvc")
 
 [node name="PathLine" type="Line2D" parent="LapReader"]
-
-[node name="Label" type="Label" parent="."]
-offset_left = 478.0
-offset_top = 7.0
-offset_right = 625.0
-offset_bottom = 30.0
-theme_override_fonts/font = ExtResource("34_neg2b")
-text = "ENTER TO SKIP"
-label_settings = SubResource("LabelSettings_r33sp")
-horizontal_alignment = 1
-vertical_alignment = 1
-justification_flags = 171

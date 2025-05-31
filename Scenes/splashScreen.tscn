@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3d35btncsjck" path="res://Scenes/story.tscn" id="2_k01gv"]
 [ext_resource type="Texture2D" uid="uid://2nweuar6fjg5" path="res://Asset/Logo/age_restriction.png" id="4_35v18"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("texture_rect")]
+[node name="Control2" type="Control" node_paths=PackedStringArray("texture_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
