@@ -1,9 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://d2glnv32t8md1"]
+[gd_scene load_steps=42 format=3 uid="uid://d2glnv32t8md1"]
 
 [ext_resource type="Texture2D" uid="uid://ckhx0sjrn2xu2" path="res://Temp/Background Color.png" id="1_5044a"]
 [ext_resource type="Script" uid="uid://bxthke0wbpwjq" path="res://Scripts/General/Game.gd" id="1_emb0w"]
 [ext_resource type="Script" uid="uid://dxo1wux5bj8wx" path="res://Scripts/On Screen Elements/BackgroundEffects.gd" id="2_330he"]
-[ext_resource type="PackedScene" uid="uid://dc5fmpgrbxbp0" path="res://Scenes/Bot.tscn" id="2_e08e2"]
+[ext_resource type="PackedScene" uid="uid://dc5fmpgrbxbp0" path="res://Scenes/bot.tscn" id="2_e08e2"]
 [ext_resource type="Shader" uid="uid://dcbeqwnm716yv" path="res://Scripts/Shaders/ModeSeven.gdshader" id="3_okd74"]
 [ext_resource type="Texture2D" uid="uid://b2p41drytlkxt" path="res://Textures/Tracks/Donut Plains 1 - Tree Line.png" id="3_vt36i"]
 [ext_resource type="Script" uid="uid://b1bl5wnf8vttq" path="res://Scripts/World Elements/Pseudo3D.gd" id="4_s71t4"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bfboerckacjb" path="res://Scripts/General/AnimationHandler.gd" id="13_6hxns"]
 [ext_resource type="Texture2D" uid="uid://bmlrf65rovmvq" path="res://Asset/Sprites/tung tung tung sahur.png" id="14_b3802"]
 [ext_resource type="Texture2D" uid="uid://d1nvgl514d4vw" path="res://Textures/Hazards/Orange_Pipes.png" id="16_t3snl"]
+[ext_resource type="Script" uid="uid://dap7u2al8vbm0" path="res://Scripts/World Elements/Racers/Bot2D.gd" id="18_e08e2"]
 [ext_resource type="Script" uid="uid://uig64etelmq3" path="res://Scripts/General/speedometer.gd" id="19_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://bttwprgr0f08i" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar bg.png" id="21_3pmx8"]
 [ext_resource type="Texture2D" uid="uid://ca3euxgb1iclq" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar.png" id="22_u50mg"]
@@ -972,11 +973,10 @@ region_enabled = true
 region_rect = Rect2(0, 0, 16, 8)
 
 [node name="Bot" type="Node2D" parent="SpriteHandler/Racers"]
-visible = false
 position = Vector2(-3.05176e-05, 0)
+script = ExtResource("18_e08e2")
 
 [node name="GFX" type="Sprite2D" parent="SpriteHandler/Racers/Bot"]
-visible = false
 z_as_relative = false
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -1304,6 +1304,15 @@ scale = Vector2(0.095, 0.095)
 texture = ExtResource("10_1w6v2")
 
 [node name="Icon" type="TextureRect" parent="mini_map"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 130.0
+offset_bottom = 403.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("26_1w6v2")
+
+[node name="Icon2" type="TextureRect" parent="mini_map"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 261.0

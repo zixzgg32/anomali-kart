@@ -142,6 +142,13 @@ func _ready():
 	bgm_player.stream = bgm_stream
 	bgm_player.autoplay = true
 	bgm_player.play()
+
+	var bot = $SpriteHandler/Racers/Bot
+	bot.Setup(_map.texture.get_size().x)
+	var bot_start_pos = ai_start_positions[selected_index2][0]
+	bot._mapPosition = bot_start_pos
+	bot.position = Vector2(bot_start_pos.x, bot_start_pos.z)
+	bot.set_character_sprite(load(character_textures[1]))
 	
 #func _create_ai_racers(track_index: int):
 	#if not ai_scene:
@@ -179,6 +186,9 @@ func _process(_delta):
 	_spriteHandler.Update(_map.ReturnWorldMatrix())
 	_animationHandler.Update()
 	_backgroundElements.Update(_map.ReturnMapRotation())
+	var bot = $SpriteHandler/Racers/Bot
+	if is_instance_valid(bot):
+		bot.Update(_map.ReturnForward())
 	
 	#for ai in ai_racers:
 		#if is_instance_valid(ai):

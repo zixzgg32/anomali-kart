@@ -35,7 +35,9 @@ func ReturnVelocity() -> Vector3: return _velocity
 func HandleRoadType(nextPixelPos : Vector2i, roadType : Globals.RoadType):
 	if(roadType == _onRoadType): return
 	_onRoadType = roadType
-	_spriteGFX.self_modulate.a = 1 
+	if _spriteGFX and is_instance_valid(_spriteGFX):
+		_spriteGFX.self_modulate.a = 1 
+	
 	
 	match roadType:
 		Globals.RoadType.VOID:

@@ -11,9 +11,9 @@ var last_lap_position := Vector2i.ZERO
 var lap_check_cooldown := 0.0
 const LAP_COOLDOWN_TIME := 0.5 
 var _base_speed := 1.0
+
 # AI-specific variables
 var _target_position := Vector3.ZERO
-var _path := []
 var _avoid_vector := Vector2.ZERO
 var _avoid_timer := 0.0
 var _decision_interval := 0.5
@@ -23,11 +23,17 @@ var _aggressiveness := randf_range(0.7, 1.3)  # Random personality factor
 func set_character_sprite(texture: Texture2D):
 	if _spriteGFX and texture:
 		_spriteGFX.texture = texture
+		_spriteGFX.region_enabled = false
 
 func _ready():
 	add_to_group("ai_racer")
 	randomize()
-	_decision_timer = randf_range(0, _decision_interval)  # Stagger decision making
+	_decision_timer = randf_range(0, _decision_interval)
+	# Assign _collisionHandler sesuai path yang benar
+	if get_tree().get_root().has_node("Main/Map/CollisionHandler"):
+		_collisionHandler = get_tree().get_root().get_node("Main/Map/CollisionHandler")
+	if not _spriteGFX or not is_instance_valid(_spriteGFX):
+		_spriteGFX = get_node_or_null("GFX")
 
 func Setup(mapSize : int):
 	SetMapSize(mapSize)
@@ -64,17 +70,20 @@ func Update(mapForward : Vector3):
 	var nextPos : Vector3 = _mapPosition + ReturnVelocity()
 	var nextPixelPos : Vector2i = Vector2i(ceil(nextPos.x), ceil(nextPos.z))
 	
-	if _collisionHandler.IsCollidingWithWall(Vector2i(ceil(nextPos.x), ceil(_mapPosition.z))):
+	# Simple wall avoidance
+	if _collisionHandler and _collisionHandler.IsCollidingWithWall(Vector2i(ceil(nextPos.x), ceil(_mapPosition.z))):
 		nextPos.x = _mapPosition.x 
 		SetCollisionBump(Vector3(-sign(ReturnVelocity().x), 0, 0))
 		_avoid_vector = Vector2(sign(ReturnVelocity().x), 0) * -1
 		_avoid_timer = 1.0
 	
-	if _collisionHandler.IsCollidingWithWall(Vector2i(ceil(_mapPosition.x), ceil(nextPos.z))):
+	if _collisionHandler and _collisionHandler.IsCollidingWithWall(Vector2i(ceil(_mapPosition.x), ceil(nextPos.z))):
 		nextPos.z = _mapPosition.z
 		SetCollisionBump(Vector3(0, 0, -sign(ReturnVelocity().z)))
 		_avoid_vector = Vector2(0, sign(ReturnVelocity().z)) * -1
 		_avoid_timer = 1.0
+
+	position = Vector2(_mapPosition.x, _mapPosition.z)
 	
 	HandleRoadType(nextPixelPos, _collisionHandler.ReturnCurrentRoadType(nextPixelPos))
 	UpdateLapCount(nextPixelPos)
@@ -88,12 +97,10 @@ func UpdateLapCount(current_position: Vector2i):
 	if current_road_type == Globals.RoadType.LAP_READER:
 		if lap_check_cooldown <= 0 and !is_on_lap_reader:
 			var moved_forward = _has_moved_forward(current_position)
-			
 			if moved_forward:
 				current_lap += 1
 				emit_signal("lap_completed", current_lap)
 				lap_check_cooldown = LAP_COOLDOWN_TIME
-				
 			is_on_lap_reader = true
 	else:
 		is_on_lap_reader = false
@@ -153,7 +160,3 @@ func set_difficulty(difficulty: float):
 	# difficulty should be between 0 (easy) and 1 (hard)
 	_aggressiveness = lerp(0.5, 1.5, difficulty)
 	_decision_interval = lerp(1.0, 0.3, difficulty)
-	
-#func set_rubber_band_speed(speed_factor: float):
-	## Adjust movement speed based on rubber band effect
-	#_base_movement_speed = _base_speed * speed_factor
