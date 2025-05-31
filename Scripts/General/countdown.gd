@@ -6,6 +6,7 @@ extends Node2D
 signal countdown_finished
 
 func _ready():
+	add_to_group("countdown")
 	label.hide()
 	label.size = Vector2(200, 200)  
 	start_countdown()

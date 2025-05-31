@@ -7,6 +7,10 @@ extends Node2D
 @export var _animationHandler : Node
 @export var _backgroundElements : Node2D
 @export var bgm_player : AudioStreamPlayer 
+
+var race_finish_screen: Control
+var race_finished := false
+
 var _mapPosition: Vector3
 var character_textures := [
 	"res://Asset/Sprites/ballerina (2).png",
@@ -86,6 +90,15 @@ var ai_racers := []
 
 
 func _ready():
+	add_to_group("game_manager")
+	
+	var finish_screen_scene = preload("res://Scenes/race_finish_screen.tscn")
+	race_finish_screen = finish_screen_scene.instantiate()
+	add_child(race_finish_screen)
+	
+	race_finish_screen.connect("rematch_requested", _on_rematch_requested)
+	race_finish_screen.connect("menu_requested", _on_menu_requested)
+	
 	var selected_index = Globals.selected_character_index
 	var texture_path = character_textures[selected_index]
 	var texture = load(texture_path)
@@ -125,71 +138,70 @@ func _ready():
 	var material = $Map.material
 	material.set_shader_parameter("trackTexture", track)
 	material.set_shader_parameter("grassTexture", tile)
-	#_create_ai_racers(selected_index2)
+	
 	var collision_node = $Map/CollisionHandler  
 	collision_node._collisionMap = collision
 	if collision_node.has_method("process_collision_data"):
 		collision_node.process_collision_data()
-	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
-	add_child(countdown)
 	
+	# Setup player first
 	_player.set_character_sprite(texture)
 	_map.Setup(Globals.screenSize, _player)
 	_collision.Setup()
-	_player.Setup(_map.texture.get_size().x)
+	_player.Setup(map.texture.get_size().x)
 	_spriteHandler.Setup(_map.ReturnWorldMatrix(), _map.texture.get_size().x, _player)
 	_animationHandler.Setup(_player)
-	bgm_player.stream = bgm_stream
-	bgm_player.autoplay = true
-	bgm_player.play()
-
+	
+	# Setup bot
 	var bot = $SpriteHandler/Racers/Bot
-	bot.Setup(_map.texture.get_size().x)
+	bot.Setup(map.texture.get_size().x)
 	var bot_start_pos = ai_start_positions[selected_index2][0]
 	bot._mapPosition = bot_start_pos
 	bot.position = Vector2(bot_start_pos.x, bot_start_pos.z)
 	bot.set_character_sprite(load(character_textures[1]))
 	
-#func _create_ai_racers(track_index: int):
-	#if not ai_scene:
-		#push_error("AI scene not assigned!")
-		#return
-	#
-	## Clear existing AI racers
-	#for ai in ai_racers:
-		#if is_instance_valid(ai):
-			#ai.queue_free()
-	#ai_racers.clear()
-	#
-	## Create new AI racers
-	#for i in range(min(ai_count, ai_start_positions[track_index].size())):
-		#var ai = ai_scene.instantiate()
-		#$SpriteHandler/Racers.add_child(ai)
-		#
-		## Set AI position
-		#var start_pos = ai_start_positions[track_index][i]
-		#ai._mapPosition = start_pos
-		#ai.position = Vector2(start_pos.x, start_pos.z)
-		#
-		## Setup AI
-		#ai.Setup(_map.texture.get_size().x)
-		#ai.set_character_sprite(load(character_textures[i % character_textures.size()]))
-		#ai.set_difficulty(lerp(0.5, 1.0, float(i)/ai_count))  # Varying difficulty
-		#
-		## Add to tracking arrays
-		#ai_racers.append(ai)
-		#_map.AddAIRacer(ai)
+	# Start countdown AFTER everything is setup
+	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
+	add_child(countdown)
+	
+	# Start BGM
+	bgm_player.stream = bgm_stream
+	bgm_player.autoplay = true
+	bgm_player.play()
+	
+	print("Game setup completed. Countdown should start now.")
+
+# Function called by Player when race is finished
+func _on_race_finished(player_position: int):
+	if race_finished:
+		return  # Prevent multiple calls
 		
+	race_finished = true
+	print("Race finished! Player position: ", player_position)
+	
+	# Stop background music
+	bgm_player.stop()
+	
+	# Show finish screen
+	race_finish_screen.show_race_result(player_position)
+
+func _on_rematch_requested():
+	print("Rematch requested")
+	# Restart the current scene
+	get_tree().reload_current_scene()
+
+func _on_menu_requested():
+	print("Back to menu requested")
+	# Change to main menu scene - adjust path as needed
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	
 func _process(_delta):
 	_map.Update(_player)
 	_player.Update(_map.ReturnForward())
 	_spriteHandler.Update(_map.ReturnWorldMatrix())
 	_animationHandler.Update()
 	_backgroundElements.Update(_map.ReturnMapRotation())
+	
 	var bot = $SpriteHandler/Racers/Bot
 	if is_instance_valid(bot):
 		bot.Update(_map.ReturnForward())
-	
-	#for ai in ai_racers:
-		#if is_instance_valid(ai):
-			#ai.Update(_map.ReturnForward())
