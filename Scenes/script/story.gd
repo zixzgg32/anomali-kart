@@ -36,7 +36,7 @@ var scene_groups := [
 		"sound_path": "res://Asset/sound/scene3.mp3",
 		"subtitles": [
 			{"time": 0.0, "text": "Saat kekacauan nyaris pecah, Dewa semesta turun tangan."},
-			{"time": 2.0, "text": "Ia mengumpulkan para anomali dan menetapkan satu cara"},
+			{"time": 2.0, "text": "Ia mengumpulkan para anomali anomali tersebut dan menetapkan satu cara"},
 			{"time": 6.0, "text": "untuk menentukan pemimpin"},
 			{"time": 8.0, "text": "Turnamen Balapan."},
 			{"time": 11.0, "text": "Satu pemenang, satu takhta. Beginilah takdir ditentukan, di lintasan para legenda"},
