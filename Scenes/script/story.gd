@@ -5,7 +5,6 @@ extends Control
 @onready var skip_label2 = $SKIP2
 @onready var subtitle_panel = $SubtitlePanel
 @onready var subtitle_label = $SubtitlePanel/SubtitleLabel
-
 var scene_groups := [
 	{ 
 		"name": "scene1", 

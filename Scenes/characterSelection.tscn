@@ -116,3 +116,9 @@ icon = ExtResource("9_2e6au")
 flat = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ESC untuk Kembali"

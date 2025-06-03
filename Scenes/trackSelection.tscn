@@ -111,3 +111,9 @@ offset_right = 350.0
 offset_bottom = 314.0
 scale = Vector2(1.5, 1.5)
 text = "PILIH TRACK MU!"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ESC untuk Kembali"
