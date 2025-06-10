@@ -33,29 +33,70 @@ func UpdateVelocity(mapForward : Vector3):
 func ReturnVelocity() -> Vector3: return _velocity
 
 func HandleRoadType(nextPixelPos : Vector2i, roadType : Globals.RoadType):
+	print("HandleRoadType: ", roadType, " at ", nextPixelPos, " Track: ", Globals.selected_track_index)
 	if(roadType == _onRoadType): return
 	_onRoadType = roadType
-	if _spriteGFX and is_instance_valid(_spriteGFX):
-		_spriteGFX.self_modulate.a = 1 
 	
+	# CRITICAL FIX: Ensure sprite is always visible by default
+	if _spriteGFX and is_instance_valid(_spriteGFX):
+		_spriteGFX.self_modulate.a = 1.0
 	
 	match roadType:
 		Globals.RoadType.VOID:
-			_spriteGFX.self_modulate.a = 0
-			_speedMultiplier = 0.0
+			print("WARNING: VOID detected at ", nextPixelPos, " - Track ", Globals.selected_track_index)
+			
+			# Check if we're near the starting position for current track
+			var current_track = Globals.selected_track_index
+			if current_track >= 0 and current_track < 4:
+				var start_positions = [
+					Vector3(378, 0, 434),      # Track 0
+					Vector3(436.579, 0, 650.6988),  # Track 1
+					Vector3(111.5937, 0, 294.0043), # Track 2
+					Vector3(484.6098, 0.0, 661.0996) # Track 3
+				]
+				var start_pos = start_positions[current_track]
+				var distance_from_start = Vector2(nextPixelPos.x - start_pos.x, nextPixelPos.y - start_pos.z).length()
+				
+				if distance_from_start < 100:
+					print("Near starting position, treating VOID as ROAD")
+					_speedMultiplier = 1.0
+				else:
+					# Make semi-transparent instead of invisible
+					if _spriteGFX and is_instance_valid(_spriteGFX):
+						_spriteGFX.self_modulate.a = 0.5
+					_speedMultiplier = 0.3  # Slow down but don't stop
+			else:
+				_speedMultiplier = 0.5
+				
 		Globals.RoadType.ROAD:
 			_speedMultiplier = 1.0
+			
 		Globals.RoadType.GRAVEL:
 			_speedMultiplier = 0.9
+			
 		Globals.RoadType.OFF_ROAD:
 			_speedMultiplier = 0.9
+			
 		Globals.RoadType.SINK:
-			_spriteGFX.self_modulate.a = 0
+			# Make semi-transparent instead of invisible
+			if _spriteGFX and is_instance_valid(_spriteGFX):
+				_spriteGFX.self_modulate.a = 0.3
 			_speedMultiplier = 0.1
+			
 		Globals.RoadType.WALL:
-			_speedMultiplier = _speedMultiplier
+			# Don't change speed multiplier for walls
+			pass
+			
 		Globals.RoadType.LAP_READER:
+			print("On LAP_READER (finish/start line) - ensuring full functionality")
+			if _spriteGFX and is_instance_valid(_spriteGFX):
+				_spriteGFX.self_modulate.a = 1.0
 			_speedMultiplier = 1.0
+	
+	# Final safety check - never let speed multiplier go to 0 unless explicitly intended
+	if _speedMultiplier <= 0:
+		print("WARNING: Speed multiplier was 0! Setting to minimum. Roadtype: ", roadType)
+		_speedMultiplier = 0.1
 
 func ReturnOnRoadType() -> Globals.RoadType: return _onRoadType
 

@@ -60,6 +60,9 @@ func Setup(mapSize : int):
 	_turn_right_rect = Rect2(228, 0, 65, 58) 
 	_current_turn_rect = _default_rect
 	
+	print("Player Setup completed for track: ", Globals.selected_track_index)
+	print("Player starting position: ", _mapPosition)
+	
 func Update(mapForward : Vector3):
 	# Always get input first, then check if we can move
 	ReturnPlayerInput()
@@ -81,6 +84,11 @@ func Update(mapForward : Vector3):
 		_spriteGFX.region_rect = _current_turn_rect
 		_spriteGFX.region_enabled = true
 		
+		# CRITICAL FIX: Ensure sprite remains visible during gameplay
+		if _spriteGFX.self_modulate.a < 0.1:
+			print("WARNING: Sprite alpha too low, forcing visibility")
+			_spriteGFX.self_modulate.a = 1.0
+		
 	if(_isPushedBack):
 		ApplyCollisionBump()
 		
@@ -95,11 +103,17 @@ func Update(mapForward : Vector3):
 		nextPos.z = _mapPosition.z
 		SetCollisionBump(Vector3(0, 0, -sign(ReturnVelocity().z)))
 		
-	HandleRoadType(nextPixelPos, _collisionHandler.ReturnCurrentRoadType(nextPixelPos))
+	# Get road type and handle it
+	var current_road_type = _collisionHandler.ReturnCurrentRoadType(nextPixelPos)
+	HandleRoadType(nextPixelPos, current_road_type)
 	UpdateLapCount(nextPixelPos)
 	SetMapPosition(nextPos)
 	UpdateMovementSpeed()
 	UpdateVelocity(mapForward)
+	
+	# Safety check for movement issues
+	if _speedMultiplier <= 0 and (_inputDir.x != 0 or _inputDir.y != 0):
+		print("ERROR: Trying to move but speed multiplier is 0! Road type: ", current_road_type)
 
 func UpdateLapCount(current_position: Vector2i):
 	var current_road_type = _collisionHandler.ReturnCurrentRoadType(current_position)
@@ -127,17 +141,9 @@ func ReturnPlayerInput() -> Vector2:
 	# Always get input, regardless of can_move state
 	var input_x = Input.get_action_strength("Left") - Input.get_action_strength("Right")
 	var input_y = Input.get_action_strength("Backward") - Input.get_action_strength("Forward")
-	
-	# Debug print for input detection
-	if input_x != 0 or input_y != 0:
-		print("Raw Input detected - X: ", input_x, " Y: ", input_y, " | Can Move: ", can_move)
 		
 	if can_move:
 		_inputDir.x = input_x
 		_inputDir.y = input_y
-		if _inputDir.x != 0 or _inputDir.y != 0:
-			print("Player Input Applied: ", _inputDir, " | Current Position: ", _mapPosition)
-	else:
-		print("Input detected but movement blocked by can_move=false")
 		
 	return Vector2(_inputDir.x, _inputDir.y)
