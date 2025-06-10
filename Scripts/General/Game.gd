@@ -9,7 +9,9 @@ extends Node2D
 @export var bgm_player : AudioStreamPlayer 
 
 var race_finish_screen: Control
+var winning_scene_controller: Control
 var race_finished := false
+var race_results := []  # Will store finishing order [1st, 2nd, 3rd, 4th] as character indices
 
 var _mapPosition: Vector3
 var character_textures := [
@@ -18,6 +20,14 @@ var character_textures := [
 	"res://Asset/Sprites/anomali tralelelo tralala (3).png",
 	"res://Asset/Sprites/anomali (2).png"
 ]
+
+# Character mapping: 0=ballerina, 1=assasino, 2=tralalero, 3=tts
+var character_index_to_name := {
+	0: "ballerina",
+	1: "assasino", 
+	2: "tralalero",
+	3: "tts"
+}
 
 var track_textures := [
 	"res://Asset/New folder/Racetrack1.png",
@@ -91,6 +101,11 @@ var ai_racers := []
 
 func _ready():
 	add_to_group("game_manager")
+	
+	var winning_scene_scene = preload("res://Scenes/winning_scene_controller.tscn")
+	winning_scene_controller = winning_scene_scene.instantiate()
+	add_child(winning_scene_controller)
+	winning_scene_controller.connect("winning_scene_finished", _on_winning_scene_finished)
 	
 	var finish_screen_scene = preload("res://Scenes/race_finish_screen.tscn")
 	race_finish_screen = finish_screen_scene.instantiate()
@@ -182,7 +197,37 @@ func _on_race_finished(player_position: int):
 	# Stop background music
 	bgm_player.stop()
 	
-	# Show finish screen
+	# Generate race results for the winning scene
+	_generate_race_results(player_position)
+	
+	# Show winning scene first
+	winning_scene_controller.play_winning_scene(race_results)
+
+func _generate_race_results(player_position: int):
+	# Create a race results array with character indices
+	# For now, we'll create a simple example - you can expand this with actual AI finishing logic
+	race_results.clear()
+	
+	var player_character = Globals.selected_character_index
+	var available_characters = [0, 1, 2, 3]  # All character indices
+	available_characters.erase(player_character)  # Remove player character
+	
+	# Create results based on player position
+	for i in range(4):
+		if i == player_position - 1:  # Player's position (1st = index 0)
+			race_results.append(player_character)
+		else:
+			# Add other characters in some order (you can make this more sophisticated)
+			if available_characters.size() > 0:
+				race_results.append(available_characters.pop_front())
+	
+	print("Race results generated: ", race_results)
+	for i in range(race_results.size()):
+		print("Position ", i+1, ": ", character_index_to_name[race_results[i]])
+
+func _on_winning_scene_finished():
+	# Show the race finish screen after winning scene
+	var player_position = race_results.find(Globals.selected_character_index) + 1
 	race_finish_screen.show_race_result(player_position)
 
 func _on_rematch_requested():

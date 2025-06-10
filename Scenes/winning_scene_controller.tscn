@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj8gvsm2ac0eb"]
+
+[ext_resource type="Script" uid="uid://bmhyega7eafu4" path="res://Scripts/On Screen Elements/winning_scene_controller.gd" id="1_im51n"]
+
+[node name="WinningSceneController" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_im51n")
+
+[node name="SceneDisplay" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
