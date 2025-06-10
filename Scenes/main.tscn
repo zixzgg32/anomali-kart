@@ -939,7 +939,6 @@ position = Vector2(48, 40)
 scale = Vector2(3, 3)
 texture = ExtResource("11_w61pk")
 offset = Vector2(-8, 0)
-flip_h = true
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 8)
 
@@ -959,6 +958,7 @@ position = Vector2(-48, 40)
 scale = Vector2(3, 3)
 texture = ExtResource("11_w61pk")
 offset = Vector2(8, 0)
+flip_h = true
 region_enabled = true
 region_rect = Rect2(16, 0, 16, 8)
 

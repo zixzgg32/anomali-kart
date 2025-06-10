@@ -1,0 +1,147 @@
+[gd_scene load_steps=14 format=3 uid="uid://b7d04prv2x2td"]
+
+[ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="1_who7o"]
+[ext_resource type="Script" uid="uid://hbgfgs1011ap" path="res://Scripts/PlayerController.gd" id="2_gm3by"]
+[ext_resource type="Texture2D" uid="uid://bn5bdh0r7p1b4" path="res://Asset/Sprites/shark.png" id="3_tvofi"]
+[ext_resource type="Script" uid="uid://s20cn4w6bxmb" path="res://Scripts/spring_arm_3d.gd" id="4_01nk1"]
+[ext_resource type="Script" uid="uid://bfjfsnyeygq75" path="res://Scripts/CameraFollow.gd" id="5_xxte1"]
+[ext_resource type="Script" uid="uid://rjm1ug5l35ue" path="res://Scripts/collision_handler.gd" id="6_gcf12"]
+[ext_resource type="Texture2D" uid="uid://c22g4tsk86h7w" path="res://Textures/Tracks/raceColl1new.png" id="7_cfcce"]
+[ext_resource type="Script" uid="uid://cbkvur4kro3nk" path="res://Scripts/player_2.gd" id="8_lbwea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgqy3"]
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+albedo_texture = ExtResource("1_who7o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wsm6x"]
+material = SubResource("StandardMaterial3D_bgqy3")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0br56"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0uvf6"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="Environment" id="Environment_pyft6"]
+background_mode = 1
+background_color = Color(0.754417, 0.324744, 0.596674, 1)
+ssao_enabled = true
+
+[node name="multiplayer" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="Track" type="StaticBody3D" parent="."]
+disable_mode = 1
+collision_layer = 4
+collision_mask = 15
+
+[node name="TrackMesh" type="MeshInstance3D" parent="Track"]
+layers = 4
+mesh = SubResource("PlaneMesh_wsm6x")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Track"]
+shape = SubResource("BoxShape3D_0br56")
+
+[node name="Player1" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57944, 0)
+collision_mask = 4
+script = ExtResource("2_gm3by")
+spawn_position = Vector3(-13, 10, -10)
+spawn_rotation = Vector3(0, 180, 0)
+
+[node name="CarSprite" type="Sprite3D" parent="Player1"]
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("3_tvofi")
+
+[node name="CarCollider" type="CollisionShape3D" parent="Player1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260643, 0)
+shape = SubResource("BoxShape3D_0uvf6")
+
+[node name="ViewportContainer1" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Viewport1" type="SubViewport" parent="ViewportContainer1"]
+handle_input_locally = false
+size = Vector2i(642, 180)
+render_target_update_mode = 4
+
+[node name="SpringArm3D" type="SpringArm3D" parent="ViewportContainer1/Viewport1" node_paths=PackedStringArray("target")]
+spring_length = 6.0
+script = ExtResource("4_01nk1")
+target = NodePath("")
+
+[node name="Camera3D" type="Camera3D" parent="ViewportContainer1/Viewport1/SpringArm3D"]
+current = true
+near = 0.001
+script = ExtResource("5_xxte1")
+target = NodePath("../../../../Player1")
+
+[node name="Waypoints" type="Node3D" parent="."]
+
+[node name="Waypoint1" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3678, 0, -0.0490646)
+
+[node name="Waypoint2" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6489, 0, 12.2136)
+
+[node name="Waypoint3" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77605, 0, 18.7612)
+
+[node name="Waypoint4" type="Marker3D" parent="Waypoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77605, 0, 18.7612)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pyft6")
+
+[node name="CollisionHandler" type="Node" parent="."]
+script = ExtResource("6_gcf12")
+_collisionMap = ExtResource("7_cfcce")
+_roadTypeColors = Array[Color]([Color(0, 0.713726, 0.729412, 1), Color(0, 0.164706, 0.729412, 1), Color(0.729412, 0.537255, 0, 1), Color(0.729412, 0, 0.611765, 1), Color(0.819608, 0.0509804, 0, 1), Color(0.4, 0.4, 0.4, 1), Color(0.603922, 0.603922, 0.603922, 1), Color(0.2, 0.2, 0.2, 1), Color(0.364706, 0.717647, 0.270588, 1), Color(1, 1, 1, 1)])
+
+[node name="Player2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57944, 0)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_lbwea")
+spawn_position = Vector3(-11, 5, -10)
+spawn_rotation = Vector3(0, 180, 0)
+
+[node name="CarSprite" type="Sprite3D" parent="Player2"]
+pixel_size = 0.02
+billboard = 1
+texture = ExtResource("3_tvofi")
+
+[node name="CarCollider" type="CollisionShape3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260643, 0)
+shape = SubResource("BoxShape3D_0uvf6")
+
+[node name="ViewportContainer2" type="SubViewportContainer" parent="."]
+offset_top = 180.0
+offset_right = 642.0
+offset_bottom = 360.0
+
+[node name="Viewport2" type="SubViewport" parent="ViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(642, 180)
+render_target_update_mode = 4
+
+[node name="SpringArm3D" type="SpringArm3D" parent="ViewportContainer2/Viewport2" node_paths=PackedStringArray("target")]
+spring_length = 6.0
+script = ExtResource("4_01nk1")
+target = NodePath("../../../Player2")
+
+[node name="Camera3D" type="Camera3D" parent="ViewportContainer2/Viewport2/SpringArm3D"]
+current = true
+near = 0.001
+script = ExtResource("5_xxte1")
+target = NodePath("../../../../Player2")
