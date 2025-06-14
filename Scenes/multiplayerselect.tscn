@@ -1,0 +1,144 @@
+[gd_scene load_steps=13 format=3 uid="uid://sm3cqh3s8fpf"]
+
+[ext_resource type="Script" uid="uid://dyeapub04cf15" path="res://Scenes/multiplayerselect.gd" id="1_5o8v5"]
+[ext_resource type="AudioStream" uid="uid://0f8wgwv15ci4" path="res://Asset/sound/music/music/mainmenu2.mp3" id="2_v0njo"]
+[ext_resource type="AudioStream" uid="uid://cdk2him6q548r" path="res://Asset/sound/soundeffect/soundeffect/hit1.mp3" id="3_kgqrs"]
+[ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="4_ybn38"]
+[ext_resource type="Texture2D" uid="uid://cugcssjgx7mt5" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png" id="5_0b63g"]
+[ext_resource type="Texture2D" uid="uid://rbkobbdftd4e" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-cappucinoassasino.png" id="6_abicn"]
+[ext_resource type="Texture2D" uid="uid://dsotrky0i7eu1" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tralalerotralala.png" id="7_xf5dm"]
+[ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="8_7oxil"]
+[ext_resource type="Texture2D" uid="uid://n7332xqqrl5j" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Pixelated Race at the Finish Line.png" id="9_f3ntd"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="10_lsa4o"]
+[ext_resource type="Texture2D" uid="uid://bdbys14j8m1e8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/arrow.png" id="11_qvb2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2e6au"]
+
+[node name="Control2" type="Control" node_paths=PackedStringArray("player1_label", "player2_label")]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5o8v5")
+bgm = ExtResource("2_v0njo")
+navigation_sound = ExtResource("3_kgqrs")
+selection_sound = ExtResource("4_ybn38")
+player1_label = NodePath("Label4")
+player2_label = NodePath("Label5")
+
+[node name="Label" type="Label" parent="."]
+top_level = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -125.0
+offset_right = 20.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Character1" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("5_0b63g")
+
+[node name="Character2" type="TextureRect" parent="."]
+visible = false
+top_level = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("6_abicn")
+
+[node name="Character3" type="TextureRect" parent="."]
+visible = false
+top_level = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("7_xf5dm")
+
+[node name="Character4" type="TextureRect" parent="."]
+visible = false
+top_level = true
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("8_7oxil")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(322.45, 78)
+scale = Vector2(0.62998, 0.548047)
+texture = ExtResource("9_f3ntd")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 258.0
+offset_right = 358.0
+offset_bottom = 281.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("10_lsa4o")
+text = "PILIH ANOMALI MU!"
+
+[node name="LeftButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 56.0
+offset_top = 132.0
+offset_right = 192.0
+offset_bottom = 268.0
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2e6au")
+icon = ExtResource("11_qvb2l")
+flat = true
+
+[node name="RightButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 571.0
+offset_top = 196.0
+offset_right = 707.0
+offset_bottom = 332.0
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2e6au")
+icon = ExtResource("11_qvb2l")
+flat = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("10_lsa4o")
+text = "ESC untuk Kembali"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 42.0
+offset_right = 351.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("10_lsa4o")
+text = "Player 1 "
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+offset_left = 284.0
+offset_top = 42.0
+offset_right = 358.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("10_lsa4o")
+text = "Player 2"

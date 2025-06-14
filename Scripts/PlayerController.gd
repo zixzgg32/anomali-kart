@@ -1,9 +1,9 @@
 extends CharacterBody3D
-
+@export var character_textures: Array[Texture] = []
 @export var spawn_position: Vector3 = Vector3.ZERO
 @export var spawn_rotation: Vector3 = Vector3.ZERO
 @export var gravity: float = 20.0
-
+@onready var car_sprite = $CarSprite
 @export var acceleration: float = 20.0
 @export var deacceleration: float = 30.0
 var current_speed := 0.0
@@ -18,8 +18,8 @@ var is_on_finish := false
 
 var particle_texture = load("res://Textures/Racers/Particles/Racer_Particles.png")
 
-@onready var collision_handler = get_node("/root/World3D/CollisionHandler")
-@onready var car_sprite = $CarSprite
+@onready var collision_handler = get_node("/root/multiplayer/CollisionHandler")
+
 var default_sprite_texture : Texture = null
 
 const MAP_SIZE : float = 100.0
@@ -28,6 +28,13 @@ var total_checkpoints := 5
 var checkpoint_passed := []
 
 func _ready():
+	var countdown = preload("res://Scenes/countdown.tscn").instantiate()
+	add_child(countdown)
+	if Globals.player1_selection != -1 and car_sprite:
+		var selected_index = Globals.player1_selection
+		if selected_index >= 0 and selected_index < character_textures.size():
+			car_sprite.texture = character_textures[selected_index]
+			default_sprite_texture = car_sprite.texture
 	global_transform.origin = spawn_position
 	rotation_degrees = spawn_rotation
 
@@ -40,7 +47,6 @@ func _ready():
 		checkpoint_passed.append(false)
 	if car_sprite:
 		default_sprite_texture = car_sprite.texture
-
 func _physics_process(delta):
 	# Gravitasi
 	if not is_on_floor():

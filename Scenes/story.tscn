@@ -158,3 +158,4 @@ grow_vertical = 0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("13_2d8gw")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl8g0v866geuu"]
+[gd_scene load_steps=13 format=3 uid="uid://bl8g0v866geuu"]
 
 [ext_resource type="Script" uid="uid://bbqoyq62o3gh4" path="res://Scenes/script/character_selection.gd" id="1_883pe"]
 [ext_resource type="Texture2D" uid="uid://cugcssjgx7mt5" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-ballerina.png" id="2_e5257"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="5_230ae"]
 [ext_resource type="Texture2D" uid="uid://n7332xqqrl5j" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Pixelated Race at the Finish Line.png" id="8_230ae"]
 [ext_resource type="Texture2D" uid="uid://bdbys14j8m1e8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/arrow.png" id="9_2e6au"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="10_oj711"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2e6au"]
 
@@ -86,6 +87,7 @@ offset_top = 258.0
 offset_right = 358.0
 offset_bottom = 281.0
 scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("10_oj711")
 text = "PILIH ANOMALI MU!"
 
 [node name="LeftButton" type="Button" parent="."]
@@ -121,4 +123,5 @@ flat = true
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("10_oj711")
 text = "ESC untuk Kembali"

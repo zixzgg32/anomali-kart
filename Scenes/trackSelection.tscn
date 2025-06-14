@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clnswsd714mem"]
+[gd_scene load_steps=13 format=3 uid="uid://clnswsd714mem"]
 
 [ext_resource type="Script" uid="uid://bpydggaj7j0s1" path="res://Scenes/script/track_selection.gd" id="1_n15fk"]
 [ext_resource type="AudioStream" uid="uid://0f8wgwv15ci4" path="res://Asset/sound/music/music/mainmenu2.mp3" id="2_0f3pg"]
@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://nc4ndbpoev6r" path="res://Asset/New folder/Racetrack4.png" id="5_aogdj"]
 [ext_resource type="Texture2D" uid="uid://n7332xqqrl5j" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Pixelated Race at the Finish Line.png" id="6_m0ugf"]
 [ext_resource type="Texture2D" uid="uid://bdbys14j8m1e8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/arrow.png" id="7_6a105"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="11_1npl2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aogdj"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,10 +111,12 @@ offset_top = 291.0
 offset_right = 350.0
 offset_bottom = 314.0
 scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("11_1npl2")
 text = "PILIH TRACK MU!"
 
 [node name="Label3" type="Label" parent="."]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("11_1npl2")
 text = "ESC untuk Kembali"

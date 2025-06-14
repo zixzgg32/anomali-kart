@@ -1,9 +1,9 @@
 extends CharacterBody3D
-
+@export var character_textures: Array[Texture] = []
 @export var spawn_position: Vector3 = Vector3.ZERO
 @export var spawn_rotation: Vector3 = Vector3.ZERO
 @export var gravity: float = 20.0
-
+@onready var car_sprite = $CarSprite
 @export var acceleration: float = 20.0
 @export var deacceleration: float = 30.0
 var current_speed := 0.0
@@ -20,7 +20,6 @@ var particle_texture = load("res://Textures/Racers/Particles/Racer_Particles.png
 
 
 @onready var collision_handler = get_node("/root/multiplayer/CollisionHandler")
-@onready var car_sprite = $CarSprite
 var default_sprite_texture : Texture = null
 
 const MAP_SIZE : float = 100.0
@@ -29,10 +28,14 @@ var total_checkpoints := 5
 var checkpoint_passed := []
 
 func _ready():
+	if Globals.player2_selection != -1 and car_sprite:
+		var selected_index = Globals.player2_selection
+		if selected_index >= 0 and selected_index < character_textures.size():
+			car_sprite.texture = character_textures[selected_index]
+			default_sprite_texture = car_sprite.texture
 	global_transform.origin = spawn_position
 	rotation_degrees = spawn_rotation
 
-	# Player hanya di layer 1, hanya mendeteksi wall (misal layer 3)
 	collision_layer = 1
 	collision_mask = 4
 
@@ -53,18 +56,17 @@ func _physics_process(delta):
 	var rotate_input = Input.get_axis("p2_right", "p2_left")
 	rotate_y(rotate_input * rotate_speed * delta)
 
-	# Smooth acceleration/deacceleration
 	if move_input != 0:
 		current_speed = lerp(current_speed, float(move_input) * move_speed * speed_multiplier, acceleration * delta)
 	else:
 		current_speed = lerp(current_speed, 0.0, deacceleration * delta)
 
-	# Hitung velocity awal
+
 	var direction = transform.basis.z * current_speed
 	velocity.x = direction.x
 	velocity.z = direction.z
 
-	# Cek wall di sumbu X
+
 	var next_pos_x = global_transform.origin + Vector3(velocity.x, 0, 0) * delta
 	var px_x = int((next_pos_x.x / MAP_SIZE + 0.5) * IMG_SIZE)
 	var pz_x = int((next_pos_x.z / MAP_SIZE + 0.5) * IMG_SIZE)
@@ -72,7 +74,7 @@ func _physics_process(delta):
 	if road_type_x == 5:
 		velocity.x = 0
 
-	# Cek wall di sumbu Z
+
 	var next_pos_z = global_transform.origin + Vector3(0, 0, velocity.z) * delta
 	var px_z = int((next_pos_z.x / MAP_SIZE + 0.5) * IMG_SIZE)
 	var pz_z = int((next_pos_z.z / MAP_SIZE + 0.5) * IMG_SIZE)
@@ -126,7 +128,7 @@ func restore_sprite():
 		car_sprite.texture = default_sprite_texture
 
 func update_lap_count(road_type: int):
-	# Anggap index 0-4 adalah checkpoint1-5, index 8 adalah finish
+
 	if road_type in [0,1,2,3,4]:
 		checkpoint_passed[road_type] = true
 	if road_type == 8: # Finish

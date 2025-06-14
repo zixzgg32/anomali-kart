@@ -20,7 +20,7 @@ func _ready():
 	icon_node = get_node(icon_sprite)
 	player_node = get_node_or_null(player_path)
 	bot_node = get_node_or_null(bot_path)
-	bot_icon_node = get_node_or_null("BotIcon") # pastikan node ini ada di minimap
+	bot_icon_node = get_node_or_null("BotIcon") 
 
 	if not player_node:
 		player_node = get_tree().get_root().find_child("Player", true, false)

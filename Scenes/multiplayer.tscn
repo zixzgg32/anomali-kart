@@ -1,13 +1,27 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7d04prv2x2td"]
+[gd_scene load_steps=28 format=3 uid="uid://b7d04prv2x2td"]
 
 [ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="1_who7o"]
 [ext_resource type="Script" uid="uid://hbgfgs1011ap" path="res://Scripts/PlayerController.gd" id="2_gm3by"]
+[ext_resource type="Texture2D" uid="uid://bxmtg7rern5il" path="res://Asset/Sprites/ballerina (1).png" id="3_01nk1"]
 [ext_resource type="Texture2D" uid="uid://bn5bdh0r7p1b4" path="res://Asset/Sprites/shark.png" id="3_tvofi"]
 [ext_resource type="Script" uid="uid://s20cn4w6bxmb" path="res://Scripts/spring_arm_3d.gd" id="4_01nk1"]
+[ext_resource type="Texture2D" uid="uid://b68ul8urlns35" path="res://Asset/Sprites/assasino.png" id="4_xxte1"]
 [ext_resource type="Script" uid="uid://bfjfsnyeygq75" path="res://Scripts/CameraFollow.gd" id="5_xxte1"]
+[ext_resource type="Texture2D" uid="uid://c5fuhudrbkfnf" path="res://Asset/Sprites/TTS.png" id="6_cfcce"]
 [ext_resource type="Script" uid="uid://rjm1ug5l35ue" path="res://Scripts/collision_handler.gd" id="6_gcf12"]
 [ext_resource type="Texture2D" uid="uid://c22g4tsk86h7w" path="res://Textures/Tracks/raceColl1new.png" id="7_cfcce"]
 [ext_resource type="Script" uid="uid://cbkvur4kro3nk" path="res://Scripts/player_2.gd" id="8_lbwea"]
+[ext_resource type="Script" uid="uid://uig64etelmq3" path="res://Scripts/General/speedometer.gd" id="12_40nyn"]
+[ext_resource type="Texture2D" uid="uid://bttwprgr0f08i" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar bg.png" id="13_q4ovr"]
+[ext_resource type="Texture2D" uid="uid://ca3euxgb1iclq" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/speed bar.png" id="14_a52sh"]
+[ext_resource type="Texture2D" uid="uid://60luu68tdgkn" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Flag (2).png" id="15_8yv2m"]
+[ext_resource type="Script" uid="uid://c3w376pn1bx18" path="res://Scripts/On Screen Elements/mini_map.gd" id="16_c33qp"]
+[ext_resource type="Texture2D" uid="uid://dv1sn06lpk8ms" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/128-frontview-tungtungsahur.png" id="17_fn3ik"]
+[ext_resource type="Script" uid="uid://by6ct4cqh0760" path="res://Scripts/General/lap_reader.gd" id="18_e584g"]
+[ext_resource type="Texture2D" uid="uid://cqa2l8njfgefm" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/1 (1).png" id="19_1t3a6"]
+[ext_resource type="Texture2D" uid="uid://6wlp26afgbs8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/2 (1).png" id="20_yp158"]
+[ext_resource type="Texture2D" uid="uid://bqg387qc6bqtb" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/countdown.png" id="21_6uwe8"]
+[ext_resource type="Texture2D" uid="uid://ce1edabous14y" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/slash.png" id="22_x03dt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgqy3"]
 shading_mode = 0
@@ -51,6 +65,7 @@ shape = SubResource("BoxShape3D_0br56")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57944, 0)
 collision_mask = 4
 script = ExtResource("2_gm3by")
+character_textures = Array[Texture]([ExtResource("3_01nk1"), ExtResource("4_xxte1"), ExtResource("3_tvofi"), ExtResource("6_cfcce")])
 spawn_position = Vector3(-13, 10, -10)
 spawn_rotation = Vector3(0, 180, 0)
 
@@ -72,10 +87,9 @@ handle_input_locally = false
 size = Vector2i(642, 180)
 render_target_update_mode = 4
 
-[node name="SpringArm3D" type="SpringArm3D" parent="ViewportContainer1/Viewport1" node_paths=PackedStringArray("target")]
+[node name="SpringArm3D" type="SpringArm3D" parent="ViewportContainer1/Viewport1"]
 spring_length = 6.0
 script = ExtResource("4_01nk1")
-target = NodePath("")
 
 [node name="Camera3D" type="Camera3D" parent="ViewportContainer1/Viewport1/SpringArm3D"]
 current = true
@@ -113,6 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.57944, 0)
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("8_lbwea")
+character_textures = Array[Texture]([ExtResource("3_01nk1"), ExtResource("4_xxte1"), ExtResource("3_tvofi"), ExtResource("6_cfcce")])
 spawn_position = Vector3(-11, 5, -10)
 spawn_rotation = Vector3(0, 180, 0)
 
@@ -145,3 +160,195 @@ current = true
 near = 0.001
 script = ExtResource("5_xxte1")
 target = NodePath("../../../../Player2")
+
+[node name="Speedometer2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 640.0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("12_40nyn")
+
+[node name="SpeedBar" type="TextureProgressBar" parent="Speedometer2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -30.0
+offset_right = -13.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+fill_mode = 1
+texture_under = ExtResource("13_q4ovr")
+texture_progress = ExtResource("14_a52sh")
+
+[node name="NameLabel" type="Label" parent="Speedometer2"]
+layout_mode = 0
+offset_left = -318.0
+offset_top = -52.0
+offset_right = -13.0
+offset_bottom = -29.0
+horizontal_alignment = 2
+
+[node name="SpeedBar2" type="TextureProgressBar" parent="Speedometer2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -139.0
+offset_top = -198.0
+offset_right = -11.0
+offset_bottom = -182.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+fill_mode = 1
+texture_under = ExtResource("13_q4ovr")
+texture_progress = ExtResource("14_a52sh")
+
+[node name="NameLabel2" type="Label" parent="Speedometer2"]
+offset_left = -316.0
+offset_top = -225.0
+offset_right = -11.0
+offset_bottom = -202.0
+horizontal_alignment = 2
+
+[node name="LapFLag" type="Sprite2D" parent="."]
+position = Vector2(30, 38)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("15_8yv2m")
+
+[node name="mini_map" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("16_c33qp")
+minimap_size = Vector2(40, 40)
+
+[node name="Map" type="TextureRect" parent="mini_map"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -322.0
+offset_top = 262.0
+offset_right = 702.0
+offset_bottom = 1286.0
+grow_horizontal = 2
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("1_who7o")
+
+[node name="Icon" type="TextureRect" parent="mini_map"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 130.0
+offset_bottom = 403.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("17_fn3ik")
+
+[node name="Icon2" type="TextureRect" parent="mini_map"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 130.0
+offset_bottom = 403.0
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("17_fn3ik")
+
+[node name="Map2" type="TextureRect" parent="mini_map"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 73.0
+offset_right = 704.0
+offset_bottom = 1097.0
+grow_horizontal = 2
+scale = Vector2(0.095, 0.095)
+texture = ExtResource("1_who7o")
+
+[node name="LapReader" type="Node2D" parent="." node_paths=PackedStringArray("lap_sprites")]
+script = ExtResource("18_e584g")
+lap_sprites = [NodePath("1"), NodePath("2"), NodePath("3")]
+
+[node name="1" type="Sprite2D" parent="LapReader"]
+position = Vector2(70, 35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_1t3a6")
+
+[node name="2" type="Sprite2D" parent="LapReader"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("20_yp158")
+
+[node name="3" type="Sprite2D" parent="LapReader"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("21_6uwe8")
+
+[node name="Slash" type="Sprite2D" parent="LapReader"]
+top_level = true
+position = Vector2(103, 34)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("22_x03dt")
+
+[node name="MaxLap" type="Sprite2D" parent="LapReader"]
+top_level = true
+position = Vector2(140, 35)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("21_6uwe8")
+
+[node name="PathLine" type="Line2D" parent="LapReader"]
+
+[node name="LapReader2" type="Node2D" parent="." node_paths=PackedStringArray("lap_sprites")]
+script = ExtResource("18_e584g")
+lap_sprites = [NodePath("1"), NodePath("2"), NodePath("3")]
+
+[node name="1" type="Sprite2D" parent="LapReader2"]
+position = Vector2(68, 194)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("19_1t3a6")
+
+[node name="2" type="Sprite2D" parent="LapReader2"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("20_yp158")
+
+[node name="3" type="Sprite2D" parent="LapReader2"]
+visible = false
+position = Vector2(88, 42)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("21_6uwe8")
+
+[node name="Slash" type="Sprite2D" parent="LapReader2"]
+top_level = true
+position = Vector2(101, 193)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("22_x03dt")
+
+[node name="MaxLap" type="Sprite2D" parent="LapReader2"]
+top_level = true
+position = Vector2(138, 194)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("21_6uwe8")
+
+[node name="PathLine" type="Line2D" parent="LapReader2"]
+
+[node name="LapFLag2" type="Sprite2D" parent="."]
+position = Vector2(24, 206)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("15_8yv2m")

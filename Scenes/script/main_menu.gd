@@ -66,7 +66,7 @@ func _on_multiplayer_pressed():
 	print("Multiplayer button pressed")
 	stop_bgm()
 	await get_tree().create_timer(0.2).timeout
-	get_tree().change_scene_to_file("res://Scenes/trackSelection.tscn")
+	get_tree().change_scene_to_file("res://Scenes/multiplayerselect.tscn")
 
 func _on_settings_pressed():
 	play_click_sound()

@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=3 uid="uid://c68vkt1qvdpxj"]
+
+[ext_resource type="Script" uid="uid://dkup1let8mkhe" path="res://Scenes/multiplayer_2_track.gd" id="1_hqoqc"]
+[ext_resource type="AudioStream" uid="uid://0f8wgwv15ci4" path="res://Asset/sound/music/music/mainmenu2.mp3" id="2_rvroa"]
+[ext_resource type="AudioStream" uid="uid://bbmehtt8domrf" path="res://Asset/sound/soundeffect/soundeffect/hit2.mp3" id="3_0bkbg"]
+[ext_resource type="AudioStream" uid="uid://btpedtspmhjn3" path="res://Asset/sound/soundeffect/soundeffect/click.mp3" id="4_3vnt6"]
+[ext_resource type="Texture2D" uid="uid://cokjif6nlg3a4" path="res://Asset/New folder/Racetrack1.png" id="5_gdcuu"]
+[ext_resource type="Texture2D" uid="uid://cpxnku33hpek2" path="res://Asset/New folder/Racetrack2.png" id="6_uq6cw"]
+[ext_resource type="Texture2D" uid="uid://fcmlp8446u52" path="res://Asset/New folder/Racetrack3.png" id="7_hxri2"]
+[ext_resource type="Texture2D" uid="uid://nc4ndbpoev6r" path="res://Asset/New folder/Racetrack4.png" id="8_6hk8i"]
+[ext_resource type="Texture2D" uid="uid://n7332xqqrl5j" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/Pixelated Race at the Finish Line.png" id="9_ybkvh"]
+[ext_resource type="Texture2D" uid="uid://bdbys14j8m1e8" path="res://Asset/TPG-Asset-20250518T115225Z-1-001/TPG-Asset/arrow.png" id="10_kkqe7"]
+[ext_resource type="FontFile" uid="uid://bafwr1f47ia7m" path="res://Asset/Font/Minecraft.ttf" id="11_o1au7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aogdj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hqoqc")
+bgm = ExtResource("2_rvroa")
+navigation_sound = ExtResource("3_0bkbg")
+selection_sound = ExtResource("4_3vnt6")
+
+[node name="Track1" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+offset_left = 242.0
+offset_top = 81.0
+offset_right = 1266.0
+offset_bottom = 1105.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("5_gdcuu")
+
+[node name="Track2" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+offset_left = 242.0
+offset_top = 81.0
+offset_right = 1266.0
+offset_bottom = 1105.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("6_uq6cw")
+
+[node name="Track3" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+offset_left = 242.0
+offset_top = 81.0
+offset_right = 1266.0
+offset_bottom = 1105.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("7_hxri2")
+
+[node name="Track4" type="TextureRect" parent="."]
+top_level = true
+layout_mode = 1
+offset_left = 242.0
+offset_top = 81.0
+offset_right = 1266.0
+offset_bottom = 1105.0
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("8_6hk8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(322, 96)
+scale = Vector2(0.62998, 0.548047)
+texture = ExtResource("9_ybkvh")
+
+[node name="LeftButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 56.0
+offset_top = 132.0
+offset_right = 192.0
+offset_bottom = 268.0
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aogdj")
+icon = ExtResource("10_kkqe7")
+flat = true
+
+[node name="RightButton" type="Button" parent="."]
+top_level = true
+layout_mode = 0
+offset_left = 571.0
+offset_top = 196.0
+offset_right = 707.0
+offset_bottom = 332.0
+rotation = -3.14159
+scale = Vector2(0.5, 0.5)
+theme_type_variation = &"FlatButton"
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_aogdj")
+icon = ExtResource("10_kkqe7")
+flat = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -94.0
+offset_right = 20.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 291.0
+offset_right = 350.0
+offset_bottom = 314.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("11_o1au7")
+text = "PILIH TRACK MU!"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+offset_left = 2.0
+offset_right = 149.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("11_o1au7")
+text = "ESC untuk Kembali"

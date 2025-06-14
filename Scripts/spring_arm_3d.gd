@@ -7,7 +7,7 @@ extends SpringArm3D
 func _ready():
 	set_as_top_level(true)
 	if not target:
-		target = get_tree().get_root().get_node("World3D/Player1") # Pastikan path sesuai
+		target = get_tree().get_root().get_node("multiplayer/Player1") # Pastikan path sesuai
 	# Sinkronkan rotasi awal kamera dengan rotasi player
 	if target:
 		rotation.y = target.rotation.y
